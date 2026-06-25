@@ -170,7 +170,6 @@
     border-radius: 14px;
     border: 1px solid var(--border);
     overflow: hidden;
-    cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
   }
@@ -223,7 +222,6 @@
   .card-credits-fill {
     height: 100%;
     border-radius: 2px;
-    transition: width 0.6s ease;
   }
   .card-credits-label {
     font-size: 10px;
@@ -241,24 +239,32 @@
     margin-bottom: 16px;
   }
   .prereq strong { color: var(--text); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 2px; }
+
+  /* Card buttons row */
+  .card-actions { display: flex; gap: 8px; }
   .card-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 9px 18px;
+    padding: 9px 14px;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--white);
     border: none;
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.15s ease;
     text-decoration: none;
-    width: 100%;
+    flex: 1;
     justify-content: center;
   }
   .card-btn:hover { opacity: 0.88; transform: scale(0.98); }
-  .btn-arrow { font-size: 16px; transition: transform 0.2s; }
+  .card-btn-outline {
+    background: transparent !important;
+    border: 2px solid currentColor;
+    color: inherit;
+  }
+  .btn-arrow { font-size: 14px; transition: transform 0.2s; }
   .course-card:hover .btn-arrow { transform: translateX(3px); }
 
   /* ── MODAL ── */
@@ -311,7 +317,7 @@
     line-height: 1.2;
     margin-bottom: 10px;
   }
-  .modal-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
   .chip {
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.25);
@@ -335,8 +341,29 @@
     transition: background 0.15s;
   }
   .modal-close:hover { background: rgba(255,255,255,0.3); }
+
+  /* Nav links inside modal */
+  .modal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 32px 20px;
+    background: rgba(0,0,0,0.15);
+  }
+  .modal-nav a {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.15s, color 0.15s;
+  }
+  .modal-nav a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
   .modal-body { padding: 32px; }
-  .syllabus-section { margin-bottom: 28px; }
+  .syllabus-section { margin-bottom: 28px; scroll-margin-top: 20px; }
   .syl-title {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
@@ -404,6 +431,69 @@
   .eval-pct { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; }
   .eval-bar-wrap { grid-column: 1/-1; height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 4px; }
   .eval-bar { height: 100%; border-radius: 2px; }
+
+  /* Bibliography */
+  .bib-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .bib-list li {
+    font-size: 13px;
+    color: #374151;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.6;
+    border-left: 2px solid var(--border);
+    padding: 6px 10px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* Resources */
+  .resources-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--offwhite);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .resource-link:hover { background: #E8EDF4; }
+
+  /* Contact */
+  .contact-box {
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  /* Download btn in modal */
+  .modal-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+  .modal-download-btn:hover { background: rgba(255,255,255,0.3); }
+
   .modal-footer {
     padding: 18px 32px;
     background: var(--offwhite);
@@ -413,6 +503,8 @@
     justify-content: space-between;
     font-size: 12px;
     color: var(--muted);
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
   /* ── FOOTER ── */
@@ -429,8 +521,10 @@
   @media (max-width: 600px) {
     .modal-body { padding: 20px 18px; }
     .modal-header { padding: 20px 18px 16px; }
-    .modal-footer { flex-direction: column; gap: 6px; }
+    .modal-nav { padding: 0 18px 16px; }
+    .modal-footer { flex-direction: column; gap: 8px; }
     .hero-stats { gap: 24px; }
+    .card-actions { flex-direction: column; }
   }
 </style>
 </head>
@@ -455,7 +549,7 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Plan de estudios · 2026</p>
     <h2>Asignaturas del<br><span>Sexto Ciclo</span></h2>
-    <p class="hero-desc">Selecciona cualquier curso para consultar su sílabo completo: sumilla, contenidos por semana, metodología y evaluación.</p>
+    <p class="hero-desc">Selecciona cualquier curso para consultar su sílabo completo: sumilla, contenidos por semana, metodología, evaluación y bibliografía. Descarga el sílabo oficial en HTML.</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">6</div><div class="stat-label">Cursos</div></div>
       <div class="stat"><div class="stat-num">21.5</div><div class="stat-label">Créditos totales</div></div>
@@ -479,7 +573,11 @@
       <p class="modal-eyebrow" id="modal-eyebrow"></p>
       <h2 class="modal-title" id="modal-title"></h2>
       <div class="modal-chips" id="modal-chips"></div>
+      <button class="modal-download-btn" id="modal-download-btn" onclick="downloadCurrentSyllabus()">
+        ⬇ Descargar sílabo HTML
+      </button>
     </div>
+    <div class="modal-nav" id="modal-nav"></div>
     <div class="modal-body" id="modal-body"></div>
     <div class="modal-footer">
       <span id="modal-footer-left"></span>
@@ -504,11 +602,12 @@ const COURSES = [
     color: "#5B4A8A",
     colorLight: "#F3F0FA",
     professor: "Prof. Dr. Leonid Alemán Gonzales",
-    sumilla: `El curso de Aprendizaje No Supervisado corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para analizar, implementar y evaluar algoritmos de aprendizaje automático que permiten descubrir patrones y estructuras ocultas en datos sin etiquetas previas, fundamentales en ciencia de datos e inteligencia artificial.
-
-El curso aborda desde los fundamentos matemáticos y estadísticos hasta la implementación computacional de algoritmos de agrupamiento, reducción de dimensionalidad, detección de anomalías y modelado generativo. Se utilizan herramientas del ecosistema Python (scikit-learn, TensorFlow, PyTorch) y entornos colaborativos como Google Colab y Jupyter Notebooks.
-
-Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrollando criterio para seleccionar el método más adecuado según el contexto, interpretar resultados y comunicar hallazgos de manera rigurosa.`,
+    contact: "laleman@unap.edu.pe",
+    sumilla: [
+      "El curso de Aprendizaje No Supervisado corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para analizar, implementar y evaluar algoritmos de aprendizaje automático que permiten descubrir patrones y estructuras ocultas en datos sin etiquetas previas, fundamentales en ciencia de datos e inteligencia artificial.",
+      "El curso aborda desde los fundamentos matemáticos y estadísticos hasta la implementación computacional de algoritmos de agrupamiento, reducción de dimensionalidad, detección de anomalías y modelado generativo. Se utilizan herramientas del ecosistema Python (scikit-learn, TensorFlow, PyTorch) y entornos colaborativos como Google Colab y Jupyter Notebooks.",
+      "Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrollando criterio para seleccionar el método más adecuado según el contexto, interpretar resultados y comunicar hallazgos de manera rigurosa."
+    ],
     logro: "Al finalizar el curso, el estudiante implementa y evalúa algoritmos de aprendizaje no supervisado aplicando técnicas de agrupamiento, reducción dimensional y detección de anomalías sobre datos reales, seleccionando el método más adecuado según el contexto y comunicando los resultados con rigor estadístico.",
     unidades: [
       {
@@ -516,15 +615,15 @@ Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrol
         semanas: "1 al 9",
         logro: "Implementa y evalúa algoritmos de agrupamiento clásicos sobre conjuntos de datos reales, analizando sus fundamentos matemáticos y métricas de validación.",
         semanas_list: [
-          { n: "Sem 1", t: "Introducción al aprendizaje no supervisado. Tipos, aplicaciones y comparación con aprendizaje supervisado." },
-          { n: "Sem 2", t: "Preprocesamiento de datos: normalización, imputación, codificación y manejo de valores atípicos." },
-          { n: "Sem 3", t: "K-Means: fundamentos, algoritmo, criterio de convergencia y método del codo." },
-          { n: "Sem 4", t: "Clustering jerárquico: dendrogramas, linkage y criterios de corte." },
-          { n: "Sem 5", t: "DBSCAN y clustering basado en densidad: parámetros epsilon y MinPts." },
-          { n: "Sem 6", t: "Métricas de evaluación: Silhouette Score, Davies-Bouldin, Adjusted Rand Index." },
-          { n: "Sem 7", t: "Clustering espectral y métodos basados en grafos." },
-          { n: "Sem 8", t: "Comparativa de algoritmos de agrupamiento: ventajas, limitaciones y casos de uso." },
-          { n: "Sem 9", t: "Sustentación parcial: análisis de agrupamiento en dataset real con documentación en Colab." },
+          { n: "Semana 1", t: "Introducción al aprendizaje no supervisado. Tipos, aplicaciones y comparación con aprendizaje supervisado." },
+          { n: "Semana 2", t: "Preprocesamiento de datos: normalización, imputación, codificación y manejo de valores atípicos." },
+          { n: "Semana 3", t: "K-Means: fundamentos, algoritmo, criterio de convergencia y método del codo." },
+          { n: "Semana 4", t: "Clustering jerárquico: dendrogramas, linkage y criterios de corte." },
+          { n: "Semana 5", t: "DBSCAN y clustering basado en densidad: parámetros epsilon y MinPts." },
+          { n: "Semana 6", t: "Métricas de evaluación: Silhouette Score, Davies-Bouldin, Adjusted Rand Index." },
+          { n: "Semana 7", t: "Clustering espectral y métodos basados en grafos." },
+          { n: "Semana 8", t: "Comparativa de algoritmos de agrupamiento: ventajas, limitaciones y casos de uso." },
+          { n: "Semana 9", t: "Sustentación parcial: análisis de agrupamiento en dataset real con documentación en Colab." },
         ]
       },
       {
@@ -532,15 +631,15 @@ Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrol
         semanas: "10 al 18",
         logro: "Aplica técnicas de reducción dimensional y modelos generativos para extraer representaciones significativas de datos de alta dimensión.",
         semanas_list: [
-          { n: "Sem 10", t: "Análisis de Componentes Principales (PCA): varianza explicada y biplots." },
-          { n: "Sem 11", t: "t-SNE y UMAP: visualización de datos de alta dimensión." },
-          { n: "Sem 12", t: "Autoencoders: arquitectura, entrenamiento y representaciones latentes." },
-          { n: "Sem 13", t: "Autoencoders variacionales (VAE) y generación de datos." },
-          { n: "Sem 14", t: "Detección de anomalías: Isolation Forest, LOF y One-Class SVM." },
-          { n: "Sem 15", t: "Modelos de mezcla Gaussiana (GMM) y algoritmo EM." },
-          { n: "Sem 16", t: "Reglas de asociación: Apriori, FP-Growth y métricas soporte/confianza/lift." },
-          { n: "Sem 17", t: "Proyecto integrador: pipeline completo de análisis no supervisado." },
-          { n: "Sem 18", t: "Presentación final, revisión de portafolio y reflexión del aprendizaje." },
+          { n: "Semana 10", t: "Análisis de Componentes Principales (PCA): varianza explicada y biplots." },
+          { n: "Semana 11", t: "t-SNE y UMAP: visualización de datos de alta dimensión." },
+          { n: "Semana 12", t: "Autoencoders: arquitectura, entrenamiento y representaciones latentes." },
+          { n: "Semana 13", t: "Autoencoders variacionales (VAE) y generación de datos." },
+          { n: "Semana 14", t: "Detección de anomalías: Isolation Forest, LOF y One-Class SVM." },
+          { n: "Semana 15", t: "Modelos de mezcla Gaussiana (GMM) y algoritmo EM." },
+          { n: "Semana 16", t: "Reglas de asociación: Apriori, FP-Growth y métricas soporte/confianza/lift." },
+          { n: "Semana 17", t: "Proyecto integrador: pipeline completo de análisis no supervisado." },
+          { n: "Semana 18", t: "Presentación final, revisión de portafolio y reflexión del aprendizaje." },
         ]
       }
     ],
@@ -553,7 +652,7 @@ Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrol
     ],
     metodologia: [
       "Aprendizaje basado en problemas con datasets reales.",
-      "Implementación progresiva en Python/Google Colab.",
+      "Implementación progresiva en Python y Google Colab.",
       "Revisiones semanales de código y resultados.",
       "Exposiciones técnicas individuales y grupales.",
       "Documentación científica de experimentos.",
@@ -564,6 +663,19 @@ Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrol
       "Informe técnico de reducción dimensional.",
       "Proyecto integrador con pipeline completo.",
       "Presentación final tipo demo científico.",
+    ],
+    recursos: [
+      { name: "Google Colab", url: "https://colab.research.google.com/" },
+      { name: "scikit-learn", url: "https://scikit-learn.org/" },
+      { name: "PyTorch", url: "https://pytorch.org/" },
+      { name: "Kaggle Datasets", url: "https://www.kaggle.com/datasets" },
+    ],
+    bibliografia: [
+      "Bishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.",
+      "Géron, A. (2022). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow. O'Reilly.",
+      "Murphy, K. P. (2022). Probabilistic Machine Learning: An Introduction. MIT Press.",
+      "Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep Learning. MIT Press.",
+      "Han, J., Kamber, M. & Pei, J. (2011). Data Mining: Concepts and Techniques. Morgan Kaufmann.",
     ]
   },
   {
@@ -576,43 +688,43 @@ Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrol
     colorLight: "#EEF3FB",
     professor: "Prof. M. Sc. Romel Percy Melgarejo Bolívar",
     contact: "permelro@unap.edu.pe",
-    sumilla: `El curso de Gestión de Proyectos TICs corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Tiene como propósito desarrollar competencias para formular, planificar, ejecutar, monitorear, controlar y cerrar proyectos tecnológicos vinculados a la Ingeniería Estadística e Informática.
-
-El curso se orienta a la gestión de portafolios de proyectos desde el inicio hasta el cierre, integrando las principales líneas de desarrollo profesional de la carrera: desarrollo de software, programación, diseño de sistemas, redes y telecomunicaciones, estadística aplicada, ciencia de datos, inteligencia artificial, análisis estadístico y asesorías de tesis.
-
-Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, GitHub Projects y Notion, aplicando metodologías tradicionales, ágiles e híbridas como PMBOK, Scrum, Kanban y Design Thinking.`,
-    logro: "Al finalizar el curso, el estudiante gestiona portafolios y proyectos TIC aplicando metodologías tradicionales, ágiles e híbridas para planificar, ejecutar, monitorear y controlar iniciativas tecnológicas, utilizando herramientas digitales que garanticen trazabilidad, calidad y cumplimiento de objetivos.",
+    sumilla: [
+      "El curso de Gestión de Proyectos TICs corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Tiene como propósito desarrollar competencias para formular, planificar, ejecutar, monitorear, controlar y cerrar proyectos tecnológicos vinculados a la Ingeniería Estadística e Informática.",
+      "El curso se orienta a la gestión de portafolios de proyectos desde el inicio hasta el cierre, integrando las principales líneas de desarrollo profesional de la carrera: desarrollo de software, programación, diseño de sistemas, redes y telecomunicaciones, estadística aplicada, ciencia de datos, inteligencia artificial, análisis estadístico y asesorías de tesis relacionadas con el procesamiento de datos.",
+      "Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, GitHub Projects y Notion, aplicando metodologías tradicionales, ágiles e híbridas como PMBOK, Scrum, Kanban, Design Thinking y gestión basada en evidencias. El curso promueve el trabajo en equipo, la trazabilidad, la documentación técnica y la entrega progresiva de valor mediante proyectos reales."
+    ],
+    logro: "Al finalizar el curso, el estudiante gestiona portafolios y proyectos de Tecnologías de Información y Comunicación aplicando metodologías tradicionales, ágiles e híbridas para planificar, ejecutar, monitorear y controlar iniciativas relacionadas con desarrollo de software, redes, estadística, ciencia de datos e investigación aplicada, utilizando herramientas digitales que garanticen trazabilidad, calidad y cumplimiento de objetivos durante todo el ciclo de vida del proyecto.",
     unidades: [
       {
         nombre: "Unidad I: Formulación, planificación y organización del portafolio TIC",
         semanas: "1 al 9",
         logro: "Formula y organiza un proyecto TIC real mediante la identificación de problemas, definición de objetivos, planificación de entregables y construcción de un portafolio digital en GitHub y Notion.",
         semanas_list: [
-          { n: "Sem 1", t: "Presentación del curso. Enfoque por proyectos y portafolios. Líneas de trabajo." },
-          { n: "Sem 2", t: "Gestión de proyectos TIC. Proyecto, programa y portafolio. Ciclo de vida." },
-          { n: "Sem 3", t: "Identificación de problemas, necesidades y oportunidades en contextos reales." },
-          { n: "Sem 4", t: "Design Thinking e ideación de proyectos tecnológicos." },
-          { n: "Sem 5", t: "Formulación del proyecto: problema, objetivos, alcance, entregables e indicadores." },
-          { n: "Sem 6", t: "Acta de constitución del proyecto. Roles, responsabilidades e interesados." },
-          { n: "Sem 7", t: "Organización del portafolio en Notion: documentación, cronograma y evidencias." },
-          { n: "Sem 8", t: "Organización del repositorio en GitHub: README, issues, milestones y versiones." },
-          { n: "Sem 9", t: "Sustentación parcial: pitch, Project Charter y tablero de seguimiento." },
+          { n: "Semana 1", t: "Presentación del curso. Enfoque por proyectos y portafolios. Líneas de trabajo: software, redes, estadística, ciencia de datos e investigación." },
+          { n: "Semana 2", t: "Gestión de proyectos TIC. Proyecto, programa y portafolio. Ciclo de vida del proyecto." },
+          { n: "Semana 3", t: "Identificación de problemas, necesidades y oportunidades en contextos reales." },
+          { n: "Semana 4", t: "Design Thinking e ideación de proyectos tecnológicos." },
+          { n: "Semana 5", t: "Formulación del proyecto: problema, objetivos, alcance, entregables e indicadores." },
+          { n: "Semana 6", t: "Acta de constitución del proyecto. Roles, responsabilidades e interesados." },
+          { n: "Semana 7", t: "Organización del portafolio en Notion: documentación, cronograma, bitácora y evidencias." },
+          { n: "Semana 8", t: "Organización del repositorio en GitHub: estructura, README, issues, milestones y control de versiones." },
+          { n: "Semana 9", t: "Sustentación parcial del proyecto: pitch, Project Charter, tablero de seguimiento y portafolio inicial." },
         ]
       },
       {
         nombre: "Unidad II: Ejecución, seguimiento, control y cierre de proyectos TIC",
         semanas: "10 al 18",
-        logro: "Ejecuta, monitorea y cierra un proyecto TIC aplicando metodologías ágiles, gestión visual, control de riesgos e indicadores de avance.",
+        logro: "Ejecuta, monitorea y cierra un proyecto TIC aplicando metodologías ágiles, gestión visual, control de riesgos, indicadores de avance y presentación de resultados mediante un portafolio digital funcional.",
         semanas_list: [
-          { n: "Sem 10", t: "PMBOK aplicado a proyectos TIC. Enfoques predictivos, adaptativos e híbridos." },
-          { n: "Sem 11", t: "Scrum aplicado a proyectos de software, ciencia de datos y redes." },
-          { n: "Sem 12", t: "Kanban y gestión visual mediante GitHub Projects y Notion." },
-          { n: "Sem 13", t: "Gestión del cronograma, recursos, costos y responsabilidades del equipo." },
-          { n: "Sem 14", t: "Gestión de riesgos, calidad y cambios en proyectos TIC." },
-          { n: "Sem 15", t: "Métricas e indicadores: avance, cumplimiento, productividad, backlog e issues." },
-          { n: "Sem 16", t: "Documentación técnica, informe del proyecto y reportes estadísticos." },
-          { n: "Sem 17", t: "Preparación de presentación final: demo, dashboard o prototipo." },
-          { n: "Sem 18", t: "Presentación final, cierre del proyecto y reflexión del aprendizaje." },
+          { n: "Semana 10", t: "PMBOK aplicado a proyectos TIC. Enfoques predictivos, adaptativos e híbridos." },
+          { n: "Semana 11", t: "Scrum aplicado a proyectos de software, ciencia de datos, redes e investigación." },
+          { n: "Semana 12", t: "Kanban y gestión visual de tareas mediante GitHub Projects y Notion." },
+          { n: "Semana 13", t: "Gestión del cronograma, recursos, costos y responsabilidades del equipo." },
+          { n: "Semana 14", t: "Gestión de riesgos, calidad y cambios en proyectos TIC." },
+          { n: "Semana 15", t: "Métricas e indicadores: avance, cumplimiento, productividad, backlog, issues y evidencias." },
+          { n: "Semana 16", t: "Documentación técnica, informe del proyecto, manuales, reportes estadísticos o de ciencia de datos." },
+          { n: "Semana 17", t: "Preparación de la presentación final: demo, dashboard, prototipo, análisis, informe o solución implementada." },
+          { n: "Semana 18", t: "Presentación final, cierre del proyecto, evaluación del portafolio y reflexión del aprendizaje." },
         ]
       }
     ],
@@ -628,14 +740,41 @@ Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, G
       "Trabajo colaborativo por equipos.",
       "Uso obligatorio de GitHub, GitHub Projects y Notion.",
       "Aplicación de Scrum, Kanban, PMBOK y metodologías híbridas.",
+      "Desarrollo de portafolios digitales de proyectos.",
+      "Asesoría continua y revisión semanal de avances.",
       "Presentaciones parciales y finales tipo Demo Day.",
     ],
     entregables: [
-      "Idea de proyecto TIC y Project Charter.",
-      "Portafolio en Notion y repositorio en GitHub.",
-      "Tablero Kanban o Scrum y bitácora de avances.",
-      "Cronograma del proyecto y matriz de riesgos.",
-      "Informe técnico y presentación final.",
+      "Idea de proyecto TIC.",
+      "Project Charter.",
+      "Portafolio en Notion.",
+      "Repositorio en GitHub con README, issues y milestones.",
+      "Tablero Kanban o Scrum activo.",
+      "Bitácora de avances semanal.",
+      "Cronograma del proyecto.",
+      "Matriz de riesgos.",
+      "Informe técnico o científico del proyecto.",
+      "Producto funcional, prototipo, dashboard o análisis estadístico.",
+      "Presentación final del proyecto.",
+    ],
+    recursos: [
+      { name: "GitHub", url: "https://github.com/" },
+      { name: "GitHub Projects", url: "https://docs.github.com/en/issues/planning-and-tracking-with-projects" },
+      { name: "Notion", url: "https://notion.so/" },
+      { name: "PMI", url: "https://www.pmi.org/" },
+      { name: "Scrum.org", url: "https://www.scrum.org/" },
+      { name: "Trello", url: "https://trello.com/" },
+      { name: "Jira", url: "https://www.atlassian.com/software/jira" },
+      { name: "Google Colab", url: "https://colab.research.google.com/" },
+    ],
+    bibliografia: [
+      "Project Management Institute. (2021). PMBOK® Guide – Seventh Edition. PMI.",
+      "Schwaber, K. & Sutherland, J. (2020). The Scrum Guide.",
+      "Schwalbe, K. Information Technology Project Management. Cengage Learning.",
+      "Meredith, J. R. & Mantel, S. J. Project Management: A Managerial Approach.",
+      "Pressman, R. Ingeniería del Software: Un enfoque práctico.",
+      "Kerzner, H. Project Management: A Systems Approach to Planning, Scheduling, and Controlling.",
+      "Wysocki, R. Effective Project Management: Traditional, Agile, Extreme, Hybrid.",
     ]
   },
   {
@@ -647,11 +786,12 @@ Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, G
     color: "#2A7F8A",
     colorLight: "#EEF8F9",
     professor: "Prof. Ing. Área de Redes y Telecomunicaciones",
-    sumilla: `El curso de Arquitectura de Redes y Protocolos corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Proporciona al estudiante los fundamentos teóricos y prácticos de las redes de computadoras modernas, desde la arquitectura física hasta los protocolos de aplicación.
-
-El curso cubre el modelo OSI y TCP/IP en profundidad, el diseño de redes LAN/WAN, protocolos de enrutamiento, seguridad en redes, redes inalámbricas y tendencias como SDN (Software Defined Networking) e IoT. Se utilizan simuladores como Cisco Packet Tracer y GNS3 para la práctica en entornos controlados.
-
-Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red reales, desarrollando competencias para el análisis de tráfico, resolución de problemas y aseguramiento de la calidad del servicio.`,
+    contact: "redes@unap.edu.pe",
+    sumilla: [
+      "El curso de Arquitectura de Redes y Protocolos corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Proporciona al estudiante los fundamentos teóricos y prácticos de las redes de computadoras modernas, desde la arquitectura física hasta los protocolos de aplicación.",
+      "El curso cubre el modelo OSI y TCP/IP en profundidad, el diseño de redes LAN/WAN, protocolos de enrutamiento, seguridad en redes, redes inalámbricas y tendencias como SDN (Software Defined Networking) e IoT. Se utilizan simuladores como Cisco Packet Tracer y GNS3 para la práctica en entornos controlados.",
+      "Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red reales, desarrollando competencias para el análisis de tráfico, resolución de problemas y aseguramiento de la calidad del servicio."
+    ],
     logro: "Al finalizar el curso, el estudiante diseña, configura y documenta arquitecturas de red aplicando los protocolos del modelo TCP/IP, implementando soluciones de enrutamiento, seguridad y calidad de servicio en entornos simulados y reales.",
     unidades: [
       {
@@ -659,15 +799,15 @@ Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red 
         semanas: "1 al 9",
         logro: "Analiza e implementa los protocolos fundamentales de las capas de red, enlace y transporte, configurando dispositivos en entornos simulados.",
         semanas_list: [
-          { n: "Sem 1", t: "Introducción a las redes de computadoras. Modelos OSI y TCP/IP. Historia y evolución." },
-          { n: "Sem 2", t: "Medios de transmisión: cables, fibra óptica y redes inalámbricas. Estándares físicos." },
-          { n: "Sem 3", t: "Capa de enlace de datos: Ethernet, switches, VLANs y Spanning Tree Protocol." },
-          { n: "Sem 4", t: "Capa de red: IPv4, IPv6, subneting y superneting (VLSM/CIDR)." },
-          { n: "Sem 5", t: "Protocolo IP: fragmentación, TTL, ARP y ICMP. Laboratorio de diagnóstico." },
-          { n: "Sem 6", t: "Capa de transporte: TCP vs UDP, control de flujo, congestión y Three-Way Handshake." },
-          { n: "Sem 7", t: "Enrutamiento estático y dinámico: RIP, OSPF y EIGRP. Comparativa." },
-          { n: "Sem 8", t: "NAT/PAT, DHCP y DNS: configuración y troubleshooting." },
-          { n: "Sem 9", t: "Evaluación parcial: diseño y configuración de red en Packet Tracer." },
+          { n: "Semana 1", t: "Introducción a las redes de computadoras. Modelos OSI y TCP/IP. Historia y evolución." },
+          { n: "Semana 2", t: "Medios de transmisión: cables, fibra óptica y redes inalámbricas. Estándares físicos." },
+          { n: "Semana 3", t: "Capa de enlace de datos: Ethernet, switches, VLANs y Spanning Tree Protocol." },
+          { n: "Semana 4", t: "Capa de red: IPv4, IPv6, subneting y superneting (VLSM/CIDR)." },
+          { n: "Semana 5", t: "Protocolo IP: fragmentación, TTL, ARP e ICMP. Laboratorio de diagnóstico." },
+          { n: "Semana 6", t: "Capa de transporte: TCP vs UDP, control de flujo, congestión y Three-Way Handshake." },
+          { n: "Semana 7", t: "Enrutamiento estático y dinámico: RIP, OSPF y EIGRP. Comparativa." },
+          { n: "Semana 8", t: "NAT/PAT, DHCP y DNS: configuración y troubleshooting." },
+          { n: "Semana 9", t: "Evaluación parcial: diseño y configuración de red en Packet Tracer." },
         ]
       },
       {
@@ -675,15 +815,15 @@ Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red 
         semanas: "10 al 18",
         logro: "Implementa soluciones de seguridad perimetral, servicios de red avanzados y comprende las tendencias actuales en arquitecturas de red modernas.",
         semanas_list: [
-          { n: "Sem 10", t: "Seguridad en redes: firewalls, ACLs, IDS/IPS y zonas DMZ." },
-          { n: "Sem 11", t: "VPNs: IPSec, SSL/TLS, OpenVPN y túneles GRE." },
-          { n: "Sem 12", t: "Redes inalámbricas: 802.11a/b/g/n/ac/ax, WPA3 y configuración de APs." },
-          { n: "Sem 13", t: "Calidad de servicio (QoS): DiffServ, DSCP y gestión de ancho de banda." },
-          { n: "Sem 14", t: "Protocolos de capa de aplicación: HTTP/2, SMTP, FTP, SSH y SNMP." },
-          { n: "Sem 15", t: "Software Defined Networking (SDN) y NFV: conceptos y arquitectura OpenFlow." },
-          { n: "Sem 16", t: "IoT y redes de sensores: MQTT, CoAP y protocolos LPWAN." },
-          { n: "Sem 17", t: "Análisis de tráfico con Wireshark: captura, filtros y diagnóstico." },
-          { n: "Sem 18", t: "Proyecto final: diseño de red empresarial. Presentación y evaluación." },
+          { n: "Semana 10", t: "Seguridad en redes: firewalls, ACLs, IDS/IPS y zonas DMZ." },
+          { n: "Semana 11", t: "VPNs: IPSec, SSL/TLS, OpenVPN y túneles GRE." },
+          { n: "Semana 12", t: "Redes inalámbricas: 802.11a/b/g/n/ac/ax, WPA3 y configuración de APs." },
+          { n: "Semana 13", t: "Calidad de servicio (QoS): DiffServ, DSCP y gestión de ancho de banda." },
+          { n: "Semana 14", t: "Protocolos de capa de aplicación: HTTP/2, SMTP, FTP, SSH y SNMP." },
+          { n: "Semana 15", t: "Software Defined Networking (SDN) y NFV: conceptos y arquitectura OpenFlow." },
+          { n: "Semana 16", t: "IoT y redes de sensores: MQTT, CoAP y protocolos LPWAN." },
+          { n: "Semana 17", t: "Análisis de tráfico con Wireshark: captura, filtros y diagnóstico." },
+          { n: "Semana 18", t: "Proyecto final: diseño de red empresarial. Presentación y evaluación." },
         ]
       }
     ],
@@ -703,10 +843,23 @@ Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red 
     ],
     entregables: [
       "Reportes de laboratorio por unidad.",
-      "Topología de red documentada (Packet Tracer).",
+      "Topología de red documentada (archivo Packet Tracer).",
       "Informe de seguridad y configuración de servicios.",
       "Proyecto final de red empresarial completa.",
       "Presentación técnica con demo en vivo.",
+    ],
+    recursos: [
+      { name: "Cisco Packet Tracer", url: "https://www.netacad.com/courses/packet-tracer" },
+      { name: "GNS3", url: "https://www.gns3.com/" },
+      { name: "Wireshark", url: "https://www.wireshark.org/" },
+      { name: "Cisco NetAcad", url: "https://www.netacad.com/" },
+    ],
+    bibliografia: [
+      "Tanenbaum, A. S. & Wetherall, D. J. (2011). Computer Networks (5th ed.). Prentice Hall.",
+      "Forouzan, B. A. (2013). Data Communications and Networking (5th ed.). McGraw-Hill.",
+      "Cisco Systems. CCNA Routing & Switching Official Cert Guide. Pearson.",
+      "Stallings, W. (2014). Data and Computer Communications (10th ed.). Pearson.",
+      "Kurose, J. F. & Ross, K. W. (2021). Computer Networking: A Top-Down Approach (8th ed.). Pearson.",
     ]
   },
   {
@@ -718,11 +871,12 @@ Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red 
     color: "#2E7D52",
     colorLight: "#EEF8F2",
     professor: "Prof. M. Sc. Área de Estadística Aplicada",
-    sumilla: `El curso de Series de Tiempo corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para el análisis, modelado y pronóstico de datos secuenciales ordenados en el tiempo, con aplicaciones en economía, ciencia de datos, meteorología, epidemiología e ingeniería.
-
-El curso abarca desde los fundamentos estadísticos de la estacionariedad y la autocorrelación hasta los modelos más avanzados de pronóstico como ARIMA, SARIMA, modelos de suavizamiento exponencial, modelos de espacio de estados y redes neuronales recurrentes aplicadas a series temporales.
-
-Los estudiantes implementarán los modelos en R y Python, aplicándolos en conjuntos de datos reales, seleccionando el modelo óptimo mediante criterios de información y validando su capacidad predictiva con métricas de error apropiadas.`,
+    contact: "estadistica@unap.edu.pe",
+    sumilla: [
+      "El curso de Series de Tiempo corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para el análisis, modelado y pronóstico de datos secuenciales ordenados en el tiempo, con aplicaciones en economía, ciencia de datos, meteorología, epidemiología e ingeniería.",
+      "El curso abarca desde los fundamentos estadísticos de la estacionariedad y la autocorrelación hasta los modelos más avanzados de pronóstico como ARIMA, SARIMA, modelos de suavizamiento exponencial, modelos de espacio de estados y redes neuronales recurrentes aplicadas a series temporales.",
+      "Los estudiantes implementarán los modelos en R y Python, aplicándolos en conjuntos de datos reales, seleccionando el modelo óptimo mediante criterios de información y validando su capacidad predictiva con métricas de error apropiadas."
+    ],
     logro: "Al finalizar el curso, el estudiante analiza, modela y pronostica series de tiempo aplicando métodos estadísticos clásicos y modernos, seleccionando el modelo óptimo y evaluando su desempeño predictivo mediante métricas adecuadas sobre datos reales.",
     unidades: [
       {
@@ -730,15 +884,15 @@ Los estudiantes implementarán los modelos en R y Python, aplicándolos en conju
         semanas: "1 al 9",
         logro: "Analiza las propiedades estadísticas de series de tiempo e implementa modelos ARIMA y sus variantes para el pronóstico de datos estacionarios y no estacionarios.",
         semanas_list: [
-          { n: "Sem 1", t: "Introducción a las series de tiempo. Componentes: tendencia, estacionalidad, ciclo e irregularidad." },
-          { n: "Sem 2", t: "Visualización y análisis exploratorio de series temporales en R y Python." },
-          { n: "Sem 3", t: "Estacionariedad: pruebas ADF, KPSS y PP. Transformaciones para estabilizar varianza." },
-          { n: "Sem 4", t: "Funciones de autocorrelación (ACF) y autocorrelación parcial (PACF)." },
-          { n: "Sem 5", t: "Modelos AR, MA y ARMA: identificación, estimación y diagnóstico." },
-          { n: "Sem 6", t: "Modelos ARIMA: diferenciación, selección de órdenes y criterios AIC/BIC." },
-          { n: "Sem 7", t: "Modelos SARIMA: manejo de estacionalidad. Aplicaciones en datos reales." },
-          { n: "Sem 8", t: "Suavizamiento exponencial: simple, Holt y Holt-Winters." },
-          { n: "Sem 9", t: "Evaluación parcial: modelado ARIMA completo sobre dataset real." },
+          { n: "Semana 1", t: "Introducción a las series de tiempo. Componentes: tendencia, estacionalidad, ciclo e irregularidad." },
+          { n: "Semana 2", t: "Visualización y análisis exploratorio de series temporales en R y Python." },
+          { n: "Semana 3", t: "Estacionariedad: pruebas ADF, KPSS y PP. Transformaciones para estabilizar varianza." },
+          { n: "Semana 4", t: "Funciones de autocorrelación (ACF) y autocorrelación parcial (PACF)." },
+          { n: "Semana 5", t: "Modelos AR, MA y ARMA: identificación, estimación y diagnóstico de residuos." },
+          { n: "Semana 6", t: "Modelos ARIMA: diferenciación, selección de órdenes y criterios AIC/BIC." },
+          { n: "Semana 7", t: "Modelos SARIMA: manejo de estacionalidad. Aplicaciones en datos reales." },
+          { n: "Semana 8", t: "Suavizamiento exponencial: simple, Holt y Holt-Winters." },
+          { n: "Semana 9", t: "Evaluación parcial: modelado ARIMA completo sobre dataset real." },
         ]
       },
       {
@@ -746,15 +900,15 @@ Los estudiantes implementarán los modelos en R y Python, aplicándolos en conju
         semanas: "10 al 18",
         logro: "Implementa modelos avanzados de pronóstico incluyendo modelos multivariados, GARCH y redes neuronales aplicadas a series temporales.",
         semanas_list: [
-          { n: "Sem 10", t: "Métricas de evaluación de pronóstico: MAE, RMSE, MAPE y Theil U." },
-          { n: "Sem 11", t: "Modelos VAR: series de tiempo multivariadas y causalidad de Granger." },
-          { n: "Sem 12", t: "Modelos de volatilidad: ARCH y GARCH. Aplicaciones financieras." },
-          { n: "Sem 13", t: "Descomposición STL y modelos de regresión con efectos temporales." },
-          { n: "Sem 14", t: "Prophet de Facebook: series con múltiples estacionalidades y festivos." },
-          { n: "Sem 15", t: "Redes neuronales recurrentes (RNN, LSTM, GRU) para pronóstico temporal." },
-          { n: "Sem 16", t: "Intervalos de predicción y cuantificación de incertidumbre en pronósticos." },
-          { n: "Sem 17", t: "Proyecto integrador: pipeline completo de análisis y pronóstico." },
-          { n: "Sem 18", t: "Presentación final, comparativa de modelos y reflexión." },
+          { n: "Semana 10", t: "Métricas de evaluación de pronóstico: MAE, RMSE, MAPE y Theil U." },
+          { n: "Semana 11", t: "Modelos VAR: series de tiempo multivariadas y causalidad de Granger." },
+          { n: "Semana 12", t: "Modelos de volatilidad: ARCH y GARCH. Aplicaciones financieras." },
+          { n: "Semana 13", t: "Descomposición STL y modelos de regresión con efectos temporales." },
+          { n: "Semana 14", t: "Prophet de Meta (Facebook): series con múltiples estacionalidades y festivos." },
+          { n: "Semana 15", t: "Redes neuronales recurrentes (RNN, LSTM, GRU) para pronóstico temporal." },
+          { n: "Semana 16", t: "Intervalos de predicción y cuantificación de incertidumbre en pronósticos." },
+          { n: "Semana 17", t: "Proyecto integrador: pipeline completo de análisis y pronóstico con datos reales." },
+          { n: "Semana 18", t: "Presentación final, comparativa de modelos y reflexión del aprendizaje." },
         ]
       }
     ],
@@ -768,7 +922,7 @@ Los estudiantes implementarán los modelos en R y Python, aplicándolos en conju
     metodologia: [
       "Clases teóricas con derivación matemática de modelos.",
       "Laboratorios computacionales en R y Python.",
-      "Análisis de casos reales (economía, clima, salud).",
+      "Análisis de casos reales (economía, clima, salud pública).",
       "Revisión semanal de avances y retroalimentación.",
       "Exposición y defensa de proyectos de pronóstico.",
     ],
@@ -778,6 +932,19 @@ Los estudiantes implementarán los modelos en R y Python, aplicándolos en conju
       "Informe de modelado ARIMA con validación cruzada.",
       "Comparativa de modelos clásicos vs modernos.",
       "Proyecto final con pronóstico y reporte técnico.",
+    ],
+    recursos: [
+      { name: "R Project", url: "https://www.r-project.org/" },
+      { name: "statsmodels (Python)", url: "https://www.statsmodels.org/" },
+      { name: "Prophet (Meta)", url: "https://facebook.github.io/prophet/" },
+      { name: "Kaggle Datasets", url: "https://www.kaggle.com/datasets" },
+    ],
+    bibliografia: [
+      "Box, G. E. P., Jenkins, G. M., Reinsel, G. C. & Ljung, G. M. (2015). Time Series Analysis: Forecasting and Control (5th ed.). Wiley.",
+      "Hyndman, R. J. & Athanasopoulos, G. (2021). Forecasting: Principles and Practice (3rd ed.). OTexts. Disponible en: https://otexts.com/fpp3/",
+      "Shumway, R. H. & Stoffer, D. S. (2017). Time Series Analysis and Its Applications (4th ed.). Springer.",
+      "Hamilton, J. D. (1994). Time Series Analysis. Princeton University Press.",
+      "Chatfield, C. & Xing, H. (2019). The Analysis of Time Series: An Introduction with R. CRC Press.",
     ]
   },
   {
@@ -789,11 +956,12 @@ Los estudiantes implementarán los modelos en R y Python, aplicándolos en conju
     color: "#C06B2A",
     colorLight: "#FBF3EE",
     professor: "Prof. M. Sc. Área de Estadística e Inferencia",
-    sumilla: `El curso de Regresión Lineal y No Lineal corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para modelar relaciones entre variables cuantitativas y cualitativas mediante técnicas estadísticas de regresión, fundamentales en la inferencia estadística, ciencia de datos y el aprendizaje automático supervisado.
-
-El curso abarca el modelo de regresión lineal simple y múltiple desde su fundamentación matricial, la regresión no lineal intrínsecamente linealizable y propiamente no lineal, modelos de regresión logística, regresión de Poisson y modelos lineales generalizados (GLM).
-
-Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, evaluando supuestos, interpretando coeficientes, realizando inferencia y comparando el poder predictivo de diferentes especificaciones.`,
+    contact: "estadistica@unap.edu.pe",
+    sumilla: [
+      "El curso de Regresión Lineal y No Lineal corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para modelar relaciones entre variables cuantitativas y cualitativas mediante técnicas estadísticas de regresión, fundamentales en la inferencia estadística, ciencia de datos y el aprendizaje automático supervisado.",
+      "El curso abarca el modelo de regresión lineal simple y múltiple desde su fundamentación matricial, la regresión no lineal intrínsecamente linealizable y propiamente no lineal, modelos de regresión logística, regresión de Poisson y modelos lineales generalizados (GLM).",
+      "Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, evaluando supuestos, interpretando coeficientes, realizando inferencia y comparando el poder predictivo de diferentes especificaciones."
+    ],
     logro: "Al finalizar el curso, el estudiante especifica, estima, verifica supuestos e interpreta modelos de regresión lineal y no lineal, aplicándolos a datos reales para modelar fenómenos de interés en estadística aplicada y ciencia de datos.",
     unidades: [
       {
@@ -801,15 +969,15 @@ Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, ev
         semanas: "1 al 9",
         logro: "Estima e interpreta modelos de regresión lineal mediante Mínimos Cuadrados Ordinarios, verifica supuestos y realiza inferencia estadística.",
         semanas_list: [
-          { n: "Sem 1", t: "Introducción al modelado estadístico. Correlación y causalidad. Análisis bivariado." },
-          { n: "Sem 2", t: "Regresión lineal simple: estimación MCO, interpretación y bondad de ajuste R²." },
-          { n: "Sem 3", t: "Inferencia en regresión: prueba t, F, intervalos de confianza y predicción." },
-          { n: "Sem 4", t: "Regresión lineal múltiple: formulación matricial (β = (X'X)⁻¹X'Y)." },
-          { n: "Sem 5", t: "Selección de variables: stepwise, AIC/BIC, LASSO y Ridge." },
-          { n: "Sem 6", t: "Verificación de supuestos: normalidad, homocedasticidad, independencia y multicolinealidad." },
-          { n: "Sem 7", t: "Variables dummy y efectos de interacción en regresión múltiple." },
-          { n: "Sem 8", t: "Valores influyentes: leverage, distancia de Cook y DFFITS." },
-          { n: "Sem 9", t: "Evaluación parcial: análisis completo de regresión múltiple en dataset real." },
+          { n: "Semana 1", t: "Introducción al modelado estadístico. Correlación y causalidad. Análisis bivariado." },
+          { n: "Semana 2", t: "Regresión lineal simple: estimación MCO, interpretación y bondad de ajuste R²." },
+          { n: "Semana 3", t: "Inferencia en regresión: prueba t, F, intervalos de confianza y predicción." },
+          { n: "Semana 4", t: "Regresión lineal múltiple: formulación matricial (β = (X'X)⁻¹X'Y)." },
+          { n: "Semana 5", t: "Selección de variables: stepwise, AIC/BIC, LASSO y Ridge." },
+          { n: "Semana 6", t: "Verificación de supuestos: normalidad, homocedasticidad, independencia y multicolinealidad." },
+          { n: "Semana 7", t: "Variables dummy y efectos de interacción en regresión múltiple." },
+          { n: "Semana 8", t: "Valores influyentes: leverage, distancia de Cook y DFFITS." },
+          { n: "Semana 9", t: "Evaluación parcial: análisis completo de regresión múltiple en dataset real." },
         ]
       },
       {
@@ -817,15 +985,15 @@ Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, ev
         semanas: "10 al 18",
         logro: "Aplica modelos de regresión no lineal, logística y modelos lineales generalizados a datos con respuestas no continuas o relaciones no lineales.",
         semanas_list: [
-          { n: "Sem 10", t: "Regresión no lineal: linealización, mínimos cuadrados no lineales (MCNL) y Gauss-Newton." },
-          { n: "Sem 11", t: "Modelos de crecimiento: logístico, Gompertz, von Bertalanffy y exponencial." },
-          { n: "Sem 12", t: "Regresión logística binaria: odds ratio, curva ROC y área AUC." },
-          { n: "Sem 13", t: "Regresión logística multinomial y ordinal: interpretación de coeficientes." },
-          { n: "Sem 14", t: "Regresión de Poisson y modelos para datos de conteo. Inflación de ceros." },
-          { n: "Sem 15", t: "Modelos lineales generalizados (GLM): familia exponencial y función de enlace." },
-          { n: "Sem 16", t: "Regresión spline, polinomial y modelos aditivos generalizados (GAM)." },
-          { n: "Sem 17", t: "Validación cruzada y métricas de desempeño predictivo." },
-          { n: "Sem 18", t: "Presentación del proyecto final y cierre del curso." },
+          { n: "Semana 10", t: "Regresión no lineal: linealización, mínimos cuadrados no lineales (MCNL) y Gauss-Newton." },
+          { n: "Semana 11", t: "Modelos de crecimiento: logístico, Gompertz, von Bertalanffy y exponencial." },
+          { n: "Semana 12", t: "Regresión logística binaria: odds ratio, curva ROC y área AUC." },
+          { n: "Semana 13", t: "Regresión logística multinomial y ordinal: interpretación de coeficientes." },
+          { n: "Semana 14", t: "Regresión de Poisson y modelos para datos de conteo. Inflación de ceros (ZIP)." },
+          { n: "Semana 15", t: "Modelos lineales generalizados (GLM): familia exponencial y función de enlace." },
+          { n: "Semana 16", t: "Regresión spline, polinomial y modelos aditivos generalizados (GAM)." },
+          { n: "Semana 17", t: "Validación cruzada y métricas de desempeño predictivo." },
+          { n: "Semana 18", t: "Presentación del proyecto final y cierre del curso." },
         ]
       }
     ],
@@ -838,17 +1006,30 @@ Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, ev
     ],
     metodologia: [
       "Derivación matemática y fundamentos matriciales.",
-      "Laboratorios aplicados en R (lm, glm) y Python (statsmodels).",
+      "Laboratorios aplicados en R (lm, glm) y Python (statsmodels, sklearn).",
       "Análisis de casos reales con interpretación contextual.",
       "Revisión crítica de supuestos y diagnóstico del modelo.",
       "Discusión de artículos científicos con modelos de regresión.",
     ],
     entregables: [
       "Scripts documentados por módulo temático.",
-      "Análisis de regresión lineal múltiple con informe.",
-      "Modelo de regresión logística con validación.",
+      "Análisis de regresión lineal múltiple con informe completo.",
+      "Modelo de regresión logística con validación y curva ROC.",
       "Proyecto integrador de modelado estadístico.",
       "Reporte técnico y presentación final.",
+    ],
+    recursos: [
+      { name: "R Project (lm, glm)", url: "https://www.r-project.org/" },
+      { name: "statsmodels (Python)", url: "https://www.statsmodels.org/" },
+      { name: "scikit-learn", url: "https://scikit-learn.org/" },
+      { name: "Kaggle Datasets", url: "https://www.kaggle.com/datasets" },
+    ],
+    bibliografia: [
+      "Montgomery, D. C., Peck, E. A. & Vining, G. G. (2012). Introduction to Linear Regression Analysis (5th ed.). Wiley.",
+      "Kutner, M., Nachtsheim, C., Neter, J. & Li, W. (2004). Applied Linear Statistical Models (5th ed.). McGraw-Hill.",
+      "Hosmer, D. W. & Lemeshow, S. (2013). Applied Logistic Regression (3rd ed.). Wiley.",
+      "Wood, S. N. (2017). Generalized Additive Models: An Introduction with R (2nd ed.). CRC Press.",
+      "James, G., Witten, D., Hastie, T. & Tibshirani, R. (2021). An Introduction to Statistical Learning (2nd ed.). Springer.",
     ]
   },
   {
@@ -860,11 +1041,12 @@ Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, ev
     color: "#D14B3D",
     colorLight: "#FBF0EF",
     professor: "Prof. Dr. Área de Estadística Matemática",
-    sumilla: `El curso de Modelos Lineales corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica con alta carga matemática. Constituye el fundamento teórico unificador de los métodos estadísticos paramétricos clásicos, proporcionando al estudiante las herramientas algebraicas y probabilísticas para comprender y extender los modelos lineales en sus diversas formas.
-
-El curso desarrolla la teoría del modelo lineal general desde su formulación en álgebra matricial, las propiedades del estimador de mínimos cuadrados, el análisis de varianza como caso particular, los contrastes de hipótesis lineales, el análisis de covarianza y los modelos de efectos fijos, aleatorios y mixtos.
-
-Los estudiantes establecerán conexiones profundas entre regresión, ANOVA, ANCOVA y los modelos lineales generalizados, desarrollando la capacidad de especificar modelos adecuados y derivar sus propiedades teóricas.`,
+    contact: "estadistica@unap.edu.pe",
+    sumilla: [
+      "El curso de Modelos Lineales corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica con alta carga matemática. Constituye el fundamento teórico unificador de los métodos estadísticos paramétricos clásicos, proporcionando al estudiante las herramientas algebraicas y probabilísticas para comprender y extender los modelos lineales en sus diversas formas.",
+      "El curso desarrolla la teoría del modelo lineal general desde su formulación en álgebra matricial, las propiedades del estimador de mínimos cuadrados, el análisis de varianza como caso particular, los contrastes de hipótesis lineales, el análisis de covarianza y los modelos de efectos fijos, aleatorios y mixtos.",
+      "Los estudiantes establecerán conexiones profundas entre regresión, ANOVA, ANCOVA y los modelos lineales generalizados, desarrollando la capacidad de especificar modelos adecuados y derivar sus propiedades teóricas con rigor matemático."
+    ],
     logro: "Al finalizar el curso, el estudiante especifica y analiza modelos lineales en su formulación matricial, derivando propiedades estadísticas, realizando inferencia mediante contrastes de hipótesis lineales y conectando la teoría con aplicaciones en regresión, ANOVA y modelos mixtos.",
     unidades: [
       {
@@ -872,15 +1054,15 @@ Los estudiantes establecerán conexiones profundas entre regresión, ANOVA, ANCO
         semanas: "1 al 9",
         logro: "Domina la formulación matricial del modelo lineal, las propiedades del estimador MCO y la inferencia estadística mediante contrastes lineales.",
         semanas_list: [
-          { n: "Sem 1", t: "Repaso de álgebra lineal: espacios vectoriales, proyecciones ortogonales y eigenvalores." },
-          { n: "Sem 2", t: "Distribuciones matriciales: distribución normal multivariada, Wishart y sus propiedades." },
-          { n: "Sem 3", t: "El modelo lineal general: Y = Xβ + ε. Supuestos de Gauss-Markov." },
-          { n: "Sem 4", t: "Estimador MCO: propiedades MELI, existencia y unicidad. Caso no identificado." },
-          { n: "Sem 5", t: "Estimador de máxima verosimilitud y sus relaciones con MCO." },
-          { n: "Sem 6", t: "Inferencia: distribuciones de β̂, pruebas t, F y contrastes lineales Cβ = d." },
-          { n: "Sem 7", t: "Regiones de confianza elipsoidales y bandas de confianza." },
-          { n: "Sem 8", t: "Estimación con restricciones lineales: multiplicadores de Lagrange y mínimos cuadrados restringidos." },
-          { n: "Sem 9", t: "Evaluación parcial: derivaciones teóricas y aplicación computacional en R." },
+          { n: "Semana 1", t: "Repaso de álgebra lineal: espacios vectoriales, proyecciones ortogonales y eigenvalores." },
+          { n: "Semana 2", t: "Distribuciones matriciales: distribución normal multivariada, Wishart y sus propiedades." },
+          { n: "Semana 3", t: "El modelo lineal general: Y = Xβ + ε. Supuestos de Gauss-Markov." },
+          { n: "Semana 4", t: "Estimador MCO: propiedades MELI, existencia y unicidad. Caso no identificado." },
+          { n: "Semana 5", t: "Estimador de máxima verosimilitud y sus relaciones con MCO bajo normalidad." },
+          { n: "Semana 6", t: "Inferencia: distribuciones de β̂, pruebas t, F y contrastes lineales Cβ = d." },
+          { n: "Semana 7", t: "Regiones de confianza elipsoidales y bandas de confianza simultáneas." },
+          { n: "Semana 8", t: "Estimación con restricciones lineales: multiplicadores de Lagrange y MCO restringidos." },
+          { n: "Semana 9", t: "Evaluación parcial: derivaciones teóricas y aplicación computacional en R." },
         ]
       },
       {
@@ -888,15 +1070,15 @@ Los estudiantes establecerán conexiones profundas entre regresión, ANOVA, ANCO
         semanas: "10 al 18",
         logro: "Especifica y analiza modelos ANOVA de una y múltiples vías, ANCOVA y modelos de efectos mixtos como extensiones del modelo lineal general.",
         semanas_list: [
-          { n: "Sem 10", t: "ANOVA de una vía como modelo lineal: efectos de tratamiento y sumas de cuadrados." },
-          { n: "Sem 11", t: "ANOVA de dos vías con y sin interacción: descomposición de la varianza total." },
-          { n: "Sem 12", t: "Comparaciones múltiples: Tukey, Bonferroni, Scheffé y tasa de falsos descubrimientos." },
-          { n: "Sem 13", t: "Diseños factoriales completos y fraccionados. Efectos principales e interacciones." },
-          { n: "Sem 14", t: "Análisis de covarianza (ANCOVA): combinación de factores y covariables." },
-          { n: "Sem 15", t: "Modelos de efectos aleatorios: componentes de varianza y REML." },
-          { n: "Sem 16", t: "Modelos lineales mixtos (LMM): estimación, predicción de efectos aleatorios (BLUP)." },
-          { n: "Sem 17", t: "Datos longitudinales y medidas repetidas como modelo lineal mixto." },
-          { n: "Sem 18", t: "Proyecto final: especificación y análisis de modelo lineal complejo. Presentación." },
+          { n: "Semana 10", t: "ANOVA de una vía como modelo lineal: efectos de tratamiento y sumas de cuadrados." },
+          { n: "Semana 11", t: "ANOVA de dos vías con y sin interacción: descomposición de la varianza total." },
+          { n: "Semana 12", t: "Comparaciones múltiples: Tukey, Bonferroni, Scheffé y tasa de falsos descubrimientos (FDR)." },
+          { n: "Semana 13", t: "Diseños factoriales completos y fraccionados. Efectos principales e interacciones." },
+          { n: "Semana 14", t: "Análisis de covarianza (ANCOVA): combinación de factores categóricos y covariables continuas." },
+          { n: "Semana 15", t: "Modelos de efectos aleatorios: componentes de varianza y estimación REML." },
+          { n: "Semana 16", t: "Modelos lineales mixtos (LMM): estimación, predicción de efectos aleatorios (BLUP)." },
+          { n: "Semana 17", t: "Datos longitudinales y medidas repetidas como modelo lineal mixto." },
+          { n: "Semana 18", t: "Proyecto final: especificación y análisis de modelo lineal complejo. Presentación." },
         ]
       }
     ],
@@ -909,20 +1091,34 @@ Los estudiantes establecerán conexiones profundas entre regresión, ANOVA, ANCO
     ],
     metodologia: [
       "Clases magistrales con derivaciones matemáticas completas.",
-      "Resolución de problemas teóricos y demostraciones.",
+      "Resolución de problemas teóricos y demostraciones formales.",
       "Implementación computacional en R (lm, lme4, nlme).",
       "Análisis crítico de artículos con modelos lineales.",
-      "Exposición de proyectos con fundamento teórico.",
+      "Exposición de proyectos con fundamento teórico riguroso.",
     ],
     entregables: [
       "Series de problemas teóricos por unidad.",
-      "Derivaciones de propiedades del estimador MCO.",
+      "Derivaciones formales de propiedades del estimador MCO.",
       "Análisis ANOVA y ANCOVA documentado en R.",
-      "Modelo lineal mixto aplicado a datos reales.",
-      "Proyecto final con reporte matemático-estadístico.",
+      "Modelo lineal mixto aplicado a datos longitudinales reales.",
+      "Proyecto final con reporte matemático-estadístico completo.",
+    ],
+    recursos: [
+      { name: "R Project (lme4, nlme)", url: "https://www.r-project.org/" },
+      { name: "CRAN Task View: Mixed Models", url: "https://cran.r-project.org/web/views/MixedModels.html" },
+      { name: "Matrix Algebra (IPSUR)", url: "https://ipsur.org/" },
+    ],
+    bibliografia: [
+      "Searle, S. R., Casella, G. & McCulloch, C. E. (2006). Variance Components. Wiley.",
+      "Rencher, A. C. & Schaalje, G. B. (2008). Linear Models in Statistics (2nd ed.). Wiley.",
+      "McCulloch, C. E. & Searle, S. R. (2001). Generalized, Linear, and Mixed Models. Wiley.",
+      "Faraway, J. J. (2016). Extending the Linear Model with R (2nd ed.). CRC Press.",
+      "Pinheiro, J. C. & Bates, D. M. (2000). Mixed-Effects Models in S and S-PLUS. Springer.",
     ]
   }
 ];
+
+let currentCourseIndex = null;
 
 function renderCourses() {
   const grid = document.getElementById('courses-grid');
@@ -930,7 +1126,7 @@ function renderCourses() {
     const maxCredits = 5;
     const fillPct = (c.credits / maxCredits * 100).toFixed(0);
     grid.innerHTML += `
-      <div class="course-card" onclick="openModal(${i})">
+      <div class="course-card">
         <div class="card-accent" style="background: linear-gradient(90deg, ${c.color}, ${c.color}99)"></div>
         <div class="card-body">
           <p class="card-code" style="color:${c.color}">${c.code}</p>
@@ -947,9 +1143,14 @@ function renderCourses() {
             <strong>Prerrequisito</strong>
             ${c.prereq}
           </div>
-          <button class="card-btn" style="background: linear-gradient(135deg, ${c.color}, ${c.color}CC)">
-            Ver sílabo completo <span class="btn-arrow">→</span>
-          </button>
+          <div class="card-actions">
+            <button class="card-btn" style="background: linear-gradient(135deg, ${c.color}, ${c.color}CC)" onclick="openModal(${i})">
+              Ver sílabo <span class="btn-arrow">→</span>
+            </button>
+            <button class="card-btn" style="background:transparent; border: 2px solid ${c.color}; color:${c.color};" onclick="downloadSyllabus(${i})">
+              ⬇ HTML
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -957,39 +1158,52 @@ function renderCourses() {
 }
 
 function openModal(i) {
+  currentCourseIndex = i;
   const c = COURSES[i];
   document.getElementById('modal-eyebrow').textContent = `${c.code} · Ciclo VI · FIEI UNAP`;
   document.getElementById('modal-title').textContent = c.title;
   document.getElementById('modal-header').style.background = `linear-gradient(135deg, ${c.color} 0%, ${c.color}CC 100%)`;
-  document.getElementById('modal-footer-left').textContent = `Prof: ${c.professor}`;
+  document.getElementById('modal-footer-left').textContent = `${c.professor}`;
   document.getElementById('modal-chips').innerHTML = `
     <span class="chip">📚 ${c.credits} créditos</span>
     <span class="chip">HP: ${c.hp} · HT: ${c.ht}</span>
     <span class="chip">Prereq: ${c.prereq.split(' - ')[0]}</span>
   `;
 
+  // Navigation links
+  document.getElementById('modal-nav').innerHTML = `
+    <a href="#ms-sumilla">Sumilla</a>
+    <a href="#ms-logro">Logro</a>
+    <a href="#ms-contenido">Contenido</a>
+    <a href="#ms-metodologia">Metodología</a>
+    <a href="#ms-evaluacion">Evaluación</a>
+    <a href="#ms-entregables">Entregables</a>
+    <a href="#ms-recursos">Recursos</a>
+    <a href="#ms-bibliografia">Bibliografía</a>
+    <a href="#ms-contacto">Contacto</a>
+  `;
+
   let html = '';
 
   // Sumilla
-  html += `<div class="syllabus-section">
-    <h3 class="syl-title">
-      <span class="icon" style="background:${c.color}">📋</span> Sumilla
-    </h3>
-    ${c.sumilla.trim().split('\n\n').map(p => `<p class="syl-text" style="margin-bottom:10px">${p.trim()}</p>`).join('')}
+  html += `<div class="syllabus-section" id="ms-sumilla">
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">📋</span> Sumilla</h3>
+    ${c.sumilla.map(p => `<p class="syl-text" style="margin-bottom:10px">${p}</p>`).join('')}
   </div>`;
 
   // Logro
-  html += `<div class="syllabus-section">
+  html += `<div class="syllabus-section" id="ms-logro">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">🎯</span> Logro del Curso</h3>
     <p class="syl-text">${c.logro}</p>
   </div>`;
 
   // Unidades
+  html += `<div class="syllabus-section" id="ms-contenido">`;
   c.unidades.forEach(u => {
-    html += `<div class="syllabus-section">
-      <h3 class="syl-title"><span class="icon" style="background:${c.color}">📅</span> ${u.nombre}</h3>
-      <p class="syl-text" style="margin-bottom:12px;font-style:italic;color:#555">Semanas ${u.semanas} · <em>Logro: ${u.logro}</em></p>
-      <div class="weeks-grid">
+    html += `
+      <h3 class="syl-title" style="margin-top:16px"><span class="icon" style="background:${c.color}">📅</span> ${u.nombre}</h3>
+      <p class="syl-text" style="margin-bottom:10px;font-style:italic;color:#555"><b>Semanas ${u.semanas}</b> · Logro: ${u.logro}</p>
+      <div class="weeks-grid" style="margin-bottom:18px">
         ${u.semanas_list.map(s => `
           <div class="week-row">
             <span class="week-num" style="background:${c.color}">${s.n}</span>
@@ -997,19 +1211,20 @@ function openModal(i) {
           </div>
         `).join('')}
       </div>
-    </div>`;
+    `;
   });
+  html += `</div>`;
 
   // Metodología
-  html += `<div class="syllabus-section">
+  html += `<div class="syllabus-section" id="ms-metodologia">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">⚙️</span> Metodología</h3>
-    <ul class="syl-list" style="color:${c.color.replace('#','#')}">
-      ${c.metodologia.map(m => `<li style="--dot:${c.color}">${m}</li>`).join('')}
+    <ul class="syl-list">
+      ${c.metodologia.map(m => `<li>${m}</li>`).join('')}
     </ul>
   </div>`;
 
   // Evaluación
-  html += `<div class="syllabus-section">
+  html += `<div class="syllabus-section" id="ms-evaluacion">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">📊</span> Evaluación</h3>
     <div class="eval-grid">
       ${c.evaluacion.map(e => `
@@ -1023,20 +1238,42 @@ function openModal(i) {
   </div>`;
 
   // Entregables
-  html += `<div class="syllabus-section">
+  html += `<div class="syllabus-section" id="ms-entregables">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">📦</span> Entregables</h3>
     <ul class="syl-list">
       ${c.entregables.map(e => `<li>${e}</li>`).join('')}
     </ul>
   </div>`;
 
+  // Recursos
+  html += `<div class="syllabus-section" id="ms-recursos">
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">🔗</span> Recursos</h3>
+    <div class="resources-grid">
+      ${c.recursos.map(r => `<a class="resource-link" href="${r.url}" target="_blank" rel="noopener">🔗 ${r.name}</a>`).join('')}
+    </div>
+  </div>`;
+
+  // Bibliografía
+  html += `<div class="syllabus-section" id="ms-bibliografia">
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">📖</span> Bibliografía</h3>
+    <ul class="bib-list">
+      ${c.bibliografia.map(b => `<li>${b}</li>`).join('')}
+    </ul>
+  </div>`;
+
+  // Contacto
+  html += `<div class="syllabus-section" id="ms-contacto">
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">✉️</span> Contacto</h3>
+    <div class="contact-box">
+      <span style="font-size:22px">👤</span>
+      <div>
+        <div style="font-weight:600; margin-bottom:2px">${c.professor}</div>
+        <div style="font-size:12px; color:#6B7280"><a href="mailto:${c.contact}" style="color:${c.color}; text-decoration:none">${c.contact}</a></div>
+      </div>
+    </div>
+  </div>`;
+
   document.getElementById('modal-body').innerHTML = html;
-
-  // Color list bullets
-  document.querySelectorAll('.syl-list li::before').forEach(el => {
-    el.style.color = c.color;
-  });
-
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1046,12 +1283,296 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+function downloadCurrentSyllabus() {
+  if (currentCourseIndex !== null) downloadSyllabus(currentCourseIndex);
+}
+
+function downloadSyllabus(i) {
+  const c = COURSES[i];
+  const html = generateSyllabusHTML(c);
+  const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Silabo-${c.code}-${c.title.replace(/\s+/g,'_')}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function generateSyllabusHTML(c) {
+  const unidadesHTML = c.unidades.map(u => `
+<div class="pub">
+<h3>${u.nombre}</h3>
+<p><strong>Duración:</strong> Semanas ${u.semanas}</p>
+<p><strong>Logro de unidad:</strong> ${u.logro}</p>
+<ul>
+${u.semanas_list.map(s => `  <li><strong>${s.n}:</strong> ${s.t}</li>`).join('\n')}
+</ul>
+</div>`).join('\n');
+
+  const evalHTML = c.evaluacion.map(e => `  <li><strong>${e.item}:</strong> ${e.pct}%</li>`).join('\n');
+  const entregablesHTML = c.entregables.map(e => `  <li>${e}</li>`).join('\n');
+  const metodHTML = c.metodologia.map(m => `  <li>${m}</li>`).join('\n');
+  const recursosHTML = c.recursos.map(r => `  <li><a href="${r.url}" target="_blank">${r.name}</a></li>`).join('\n');
+  const bibHTML = c.bibliografia.map(b => `  <li>${b}</li>`).join('\n');
+  const sumillaHTML = c.sumilla.map(p => `<p style="text-align:justify">${p}</p>`).join('\n');
+
+  return `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="${c.title.toLowerCase()}, FIEI, UNAP, estadística, informática, sílabo"/>
+<meta name="description" content="Sílabo oficial del curso ${c.title} - Ingeniería Estadística e Informática - UNAP - Ciclo VI 2026"/>
+<title>${c.code} - ${c.title} - FIEI UNAP</title>
+<style>
+  body {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    background-color: #060913;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    line-height: 1.7;
+  }
+  .wrapper {
+    padding: 25px;
+  }
+  .content {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px 40px;
+    box-sizing: border-box;
+  }
+  .header-band {
+    background: ${c.color};
+    color: #fff;
+    padding: 28px 40px 22px;
+    margin: -30px -40px 28px -40px;
+  }
+  .course-code {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+  .course-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.15;
+  }
+  .course-meta {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.8;
+  }
+  nav {
+    background: #f4f6f9;
+    border-left: 4px solid ${c.color};
+    padding: 12px 16px;
+    margin-bottom: 28px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+  }
+  nav a {
+    color: ${c.color};
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: ${c.color};
+    border-bottom: 2px solid ${c.color};
+    padding-bottom: 6px;
+    margin: 32px 0 12px 0;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a2b45;
+    margin: 18px 0 8px 0;
+  }
+  p { margin-bottom: 10px; font-size: 14px; }
+  ul { padding-left: 22px; margin: 8px 0 14px 0; }
+  ul li { font-size: 14px; margin-bottom: 5px; }
+  .pub {
+    background: #f8fafc;
+    border: 1px solid #dde3ed;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .pub h3 {
+    color: ${c.color};
+    margin-top: 0;
+    font-size: 15px;
+  }
+  hr { border: none; border-top: 1px solid #dde3ed; margin: 24px 0; }
+  .footer-bar {
+    background: #060913;
+    color: #8A9AB8;
+    text-align: center;
+    padding: 18px;
+    font-size: 12px;
+    margin-top: 24px;
+  }
+  .footer-bar a { color: ${c.color}; }
+  .contact-block {
+    background: #f4f6f9;
+    border-left: 4px solid ${c.color};
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  .eval-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+  .eval-pct {
+    font-weight: 700;
+    color: ${c.color};
+    white-space: nowrap;
+    margin-left: 16px;
+  }
+  @media (max-width: 860px) {
+    .content { width: 100%; padding: 20px 18px; }
+    .header-band { margin: -20px -18px 22px -18px; padding: 22px 18px 18px; }
+    .course-title { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="content">
+
+  <div class="header-band">
+    <p class="course-code">${c.code} · Ciclo VI · FIEI UNAP · 2026</p>
+    <h1 class="course-title">${c.title}</h1>
+    <p class="course-meta">
+      Ingeniería Estadística e Informática · Facultad de Ingeniería Estadística e Informática<br>
+      Universidad Nacional del Altiplano — Puno<br><br>
+      Créditos: ${c.credits} &nbsp;|&nbsp; HP: ${c.hp} &nbsp;|&nbsp; HT: ${c.ht} &nbsp;|&nbsp; Total: ${c.hp + c.ht} horas semanales<br>
+      Prerrequisito: ${c.prereq}<br>
+      ${c.professor}
+    </p>
+  </div>
+
+  <nav>
+    <a href="#sumilla">Sumilla</a>
+    <a href="#logro">Logro</a>
+    <a href="#contenido">Contenido</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#evaluacion">Evaluación</a>
+    <a href="#entregables">Entregables</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#bibliografia">Bibliografía</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <hr/>
+
+  <h2 id="sumilla">Sumilla</h2>
+  ${sumillaHTML}
+
+  <hr/>
+
+  <h2 id="logro">Logro del Curso</h2>
+  <p style="text-align:justify">${c.logro}</p>
+
+  <hr/>
+
+  <h2 id="contenido">Contenido por Unidades</h2>
+  ${unidadesHTML}
+
+  <hr/>
+
+  <h2 id="metodologia">Metodología</h2>
+  <div class="pub">
+    <ul>
+${metodHTML}
+    </ul>
+  </div>
+
+  <hr/>
+
+  <h2 id="evaluacion">Evaluación</h2>
+  <div class="pub">
+${c.evaluacion.map(e => `    <div class="eval-item"><span>${e.item}</span><span class="eval-pct">${e.pct}%</span></div>`).join('\n')}
+  </div>
+
+  <hr/>
+
+  <h2 id="entregables">Entregables</h2>
+  <div class="pub">
+    <ul>
+${entregablesHTML}
+    </ul>
+  </div>
+
+  <hr/>
+
+  <h2 id="recursos">Recursos</h2>
+  <div class="pub">
+    <ul>
+${recursosHTML}
+    </ul>
+  </div>
+
+  <hr/>
+
+  <h2 id="bibliografia">Bibliografía</h2>
+  <div class="pub">
+    <ul>
+${bibHTML}
+    </ul>
+  </div>
+
+  <hr/>
+
+  <h2 id="contacto">Contacto</h2>
+  <div class="contact-block">
+    <strong>${c.professor}</strong><br>
+    <a href="mailto:${c.contact}">${c.contact}</a><br>
+    Facultad de Ingeniería Estadística e Informática · UNAP · Puno
+  </div>
+
+  <hr/>
+
+</div>
+</div>
+
+<div class="footer-bar">
+  &copy; 2026 Universidad Nacional del Altiplano &mdash; FIEI &mdash; Ingeniería Estadística e Informática<br>
+  Sílabo Oficial · ${c.code} ${c.title} · Ciclo VI · 2026
+</div>
+
+</body>
+</html>`;
+}
+
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
+});
+
+// Smooth scroll inside modal body for anchor links
+document.getElementById('modal-nav').addEventListener('click', function(e) {
+  if (e.target.tagName === 'A') {
+    e.preventDefault();
+    const target = document.querySelector(e.target.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 });
 
 renderCourses();
