@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --navy:   #0B1E3D;
     --navy2:  #132847;
@@ -26,496 +25,110 @@
     --orange: #C06B2A;
     --blue:   #2356A0;
   }
+  body { font-family: 'Inter', sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--offwhite);
-    color: var(--text);
-    min-height: 100vh;
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: var(--navy);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-  }
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 28px;
-  }
-  .header-logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .logo-badge {
-    width: 42px; height: 42px;
-    background: var(--gold);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700; font-size: 18px;
-    color: var(--navy);
-    flex-shrink: 0;
-  }
+  /* HEADER */
+  header { background: var(--navy); padding: 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; }
+  .header-logo { display: flex; align-items: center; gap: 14px; }
+  .logo-badge { width: 42px; height: 42px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: var(--navy); flex-shrink: 0; }
   .header-title { color: var(--white); }
   .header-title h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.02em; }
   .header-title p { font-size: 11px; color: var(--muted); margin-top: 1px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .header-ciclo {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  .header-ciclo { background: var(--gold); color: var(--navy); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 
-  /* ── HERO ── */
-  .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, #1C3A6B 60%, #0D2847 100%);
-    padding: 64px 28px 56px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      45deg, transparent, transparent 40px,
-      rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 80px
-    );
-  }
+  /* HERO */
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, #1C3A6B 60%, #0D2847 100%); padding: 64px 28px 56px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 80px); }
   .hero-content { position: relative; }
-  .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--gold);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .hero h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
+  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; }
+  .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
   .hero h2 span { color: var(--gold); }
-  .hero-desc {
-    font-size: 15px;
-    color: #A8BCCE;
-    max-width: 560px;
-    margin: 0 auto 32px;
-    line-height: 1.7;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
+  .hero-desc { font-size: 15px; color: #A8BCCE; max-width: 560px; margin: 0 auto 32px; line-height: 1.7; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
   .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
 
-  /* ── GRID ── */
-  .grid-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 28px;
-  }
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 32px;
-  }
-  .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 20px;
-  }
+  /* GRID */
+  .grid-section { max-width: 1100px; margin: 0 auto; padding: 56px 28px; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--text); margin-bottom: 32px; }
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
 
-  /* ── COURSE CARD ── */
-  .course-card {
-    background: var(--white);
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-  }
-  .course-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(11,30,61,0.12);
-  }
-  .card-accent {
-    height: 4px;
-    width: 100%;
-  }
+  /* COURSE CARD */
+  .course-card { background: var(--white); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; }
+  .course-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,30,61,0.12); }
+  .card-accent { height: 4px; width: 100%; }
   .card-body { padding: 22px 22px 18px; }
-  .card-code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-  }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.35;
-    margin-bottom: 14px;
-  }
-  .card-meta {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-  .meta-tag {
-    background: var(--offwhite);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 11px;
-    color: var(--muted);
-    font-weight: 500;
-  }
-  .card-credits-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    margin-bottom: 16px;
-    overflow: hidden;
-  }
-  .card-credits-fill {
-    height: 100%;
-    border-radius: 2px;
-  }
-  .card-credits-label {
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 16px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .prereq {
-    font-size: 11px;
-    color: var(--muted);
-    background: #F8FAFC;
-    border-left: 2px solid var(--border);
-    padding: 6px 10px;
-    border-radius: 0 6px 6px 0;
-    margin-bottom: 16px;
-  }
+  .card-code { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 14px; }
+  .card-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .meta-tag { background: var(--offwhite); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 11px; color: var(--muted); font-weight: 500; }
+  .card-credits-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 16px; overflow: hidden; }
+  .card-credits-fill { height: 100%; border-radius: 2px; }
+  .card-credits-label { font-size: 10px; color: var(--muted); margin-bottom: 16px; font-family: 'JetBrains Mono', monospace; }
+  .prereq { font-size: 11px; color: var(--muted); background: #F8FAFC; border-left: 2px solid var(--border); padding: 6px 10px; border-radius: 0 6px 6px 0; margin-bottom: 16px; }
   .prereq strong { color: var(--text); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 2px; }
-
-  /* Card buttons row */
   .card-actions { display: flex; gap: 8px; }
-  .card-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.15s ease, transform 0.15s ease;
-    text-decoration: none;
-    flex: 1;
-    justify-content: center;
-  }
+  .card-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--white); border: none; cursor: pointer; transition: opacity 0.15s ease, transform 0.15s ease; text-decoration: none; flex: 1; justify-content: center; }
   .card-btn:hover { opacity: 0.88; transform: scale(0.98); }
-  .card-btn-outline {
-    background: transparent !important;
-    border: 2px solid currentColor;
-    color: inherit;
-  }
   .btn-arrow { font-size: 14px; transition: transform 0.2s; }
   .course-card:hover .btn-arrow { transform: translateX(3px); }
 
-  /* ── MODAL ── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(7, 18, 38, 0.82);
-    z-index: 1000;
-    backdrop-filter: blur(4px);
-    align-items: flex-start;
-    justify-content: center;
-    padding: 24px 16px;
-    overflow-y: auto;
-  }
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(7,18,38,0.82); z-index: 1000; backdrop-filter: blur(4px); align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
   .modal-overlay.open { display: flex; }
-  .modal-box {
-    background: var(--white);
-    border-radius: 18px;
-    width: 100%;
-    max-width: 820px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.35);
-    animation: slideUp 0.28s ease;
-    margin: auto;
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .modal-header {
-    padding: 28px 32px 24px;
-    position: relative;
-  }
-  .modal-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    opacity: 0.8;
-    color: var(--white);
-  }
-  .modal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
+  .modal-box { background: var(--white); border-radius: 18px; width: 100%; max-width: 820px; overflow: hidden; position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.35); animation: slideUp 0.28s ease; margin: auto; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  .modal-header { padding: 28px 32px 24px; position: relative; }
+  .modal-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.8; color: var(--white); }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 10px; }
   .modal-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-  .chip {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: var(--white);
-    font-weight: 500;
-  }
-  .modal-close {
-    position: absolute;
-    top: 20px; right: 20px;
-    background: rgba(255,255,255,0.15);
-    border: none;
-    color: var(--white);
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s;
-  }
+  .chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: var(--white); font-weight: 500; }
+  .modal-close { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.15); border: none; color: var(--white); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
   .modal-close:hover { background: rgba(255,255,255,0.3); }
-
-  /* Nav links inside modal */
-  .modal-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 0 32px 20px;
-    background: rgba(0,0,0,0.15);
-  }
-  .modal-nav a {
-    color: rgba(255,255,255,0.75);
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 3px 10px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: background 0.15s, color 0.15s;
-  }
+  .modal-nav { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 32px 20px; background: rgba(0,0,0,0.15); }
+  .modal-nav a { color: rgba(255,255,255,0.75); font-size: 12px; font-weight: 500; text-decoration: none; padding: 3px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); transition: background 0.15s, color 0.15s; }
   .modal-nav a:hover { background: rgba(255,255,255,0.15); color: #fff; }
-
   .modal-body { padding: 32px; }
   .syllabus-section { margin-bottom: 28px; scroll-margin-top: 20px; }
-  .syl-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .syl-title .icon {
-    width: 24px; height: 24px;
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px;
-    color: white;
-  }
-  .syl-text {
-    font-size: 14px;
-    line-height: 1.75;
-    color: #374151;
-    text-align: justify;
-  }
+  .syl-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .syl-title .icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white; }
+  .syl-text { font-size: 14px; line-height: 1.75; color: #374151; text-align: justify; }
   .syl-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .syl-list li {
-    font-size: 13.5px;
-    color: #374151;
-    padding-left: 18px;
-    position: relative;
-    line-height: 1.6;
-  }
-  .syl-list li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    font-size: 10px;
-    top: 3px;
-  }
+  .syl-list li { font-size: 13.5px; color: #374151; padding-left: 18px; position: relative; line-height: 1.6; }
+  .syl-list li::before { content: '▸'; position: absolute; left: 0; font-size: 10px; top: 3px; }
   .weeks-grid { display: flex; flex-direction: column; gap: 4px; }
-  .week-row {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    padding: 8px 10px;
-    border-radius: 8px;
-    transition: background 0.1s;
-  }
+  .week-row { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 8px; transition: background 0.1s; }
   .week-row:hover { background: var(--offwhite); }
-  .week-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--white);
-    background: var(--muted);
-    border-radius: 5px;
-    padding: 2px 7px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    min-width: 52px;
-    text-align: center;
-  }
+  .week-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: var(--white); background: var(--muted); border-radius: 5px; padding: 2px 7px; flex-shrink: 0; margin-top: 2px; min-width: 52px; text-align: center; }
   .week-text { font-size: 13.5px; color: #374151; line-height: 1.55; }
   .eval-grid { display: grid; grid-template-columns: 1fr auto; gap: 8px 20px; align-items: center; }
   .eval-item { font-size: 13.5px; color: #374151; }
   .eval-pct { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; }
   .eval-bar-wrap { grid-column: 1/-1; height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 4px; }
   .eval-bar { height: 100%; border-radius: 2px; }
-
-  /* Bibliography */
   .bib-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .bib-list li {
-    font-size: 13px;
-    color: #374151;
-    padding-left: 22px;
-    position: relative;
-    line-height: 1.6;
-    border-left: 2px solid var(--border);
-    padding: 6px 10px;
-    border-radius: 0 6px 6px 0;
-  }
-
-  /* Resources */
+  .bib-list li { font-size: 13px; color: #374151; border-left: 2px solid var(--border); padding: 6px 10px; border-radius: 0 6px 6px 0; line-height: 1.6; }
   .resources-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-  .resource-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    background: var(--offwhite);
-    transition: border-color 0.15s, background 0.15s;
-  }
+  .resource-link { display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text); background: var(--offwhite); transition: border-color 0.15s, background 0.15s; }
   .resource-link:hover { background: #E8EDF4; }
-
-  /* Contact */
-  .contact-box {
-    background: var(--offwhite);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text);
-  }
-
-  /* Download btn in modal */
-  .modal-download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 9px 20px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.15s;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.35);
-  }
+  .contact-box { background: var(--offwhite); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
+  .modal-download-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--white); cursor: pointer; transition: opacity 0.15s; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); }
   .modal-download-btn:hover { background: rgba(255,255,255,0.3); }
+  .modal-footer { padding: 18px 32px; background: var(--offwhite); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); gap: 12px; flex-wrap: wrap; }
 
-  .modal-footer {
-    padding: 18px 32px;
-    background: var(--offwhite);
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--muted);
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  /* INFO BOX */
+  .info-box { background: #f0f4f8; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 12.5px; color: #4a5568; }
+  .info-box strong { color: var(--text); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+  .info-grid .info-row { display: flex; gap: 6px; }
+  .info-label { font-weight: 600; color: var(--text); min-width: 80px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .info-val { color: #374151; font-size: 12.5px; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy);
-    color: var(--muted);
-    text-align: center;
-    padding: 28px;
-    font-size: 12px;
-    margin-top: 40px;
-  }
+  /* FOOTER */
+  footer { background: var(--navy); color: var(--muted); text-align: center; padding: 28px; font-size: 12px; margin-top: 40px; }
   footer strong { color: var(--gold); }
 
   @media (max-width: 600px) {
@@ -525,12 +138,12 @@
     .modal-footer { flex-direction: column; gap: 8px; }
     .hero-stats { gap: 24px; }
     .card-actions { flex-direction: column; }
+    .info-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="header-logo">
@@ -544,28 +157,26 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <p class="hero-eyebrow">Plan de estudios · 2026</p>
+    <p class="hero-eyebrow">Plan de estudios · Semestre 2026-I</p>
     <h2>Asignaturas del<br><span>Sexto Ciclo</span></h2>
-    <p class="hero-desc">Selecciona cualquier curso para consultar su sílabo completo: sumilla, contenidos por semana, metodología, evaluación y bibliografía. Descarga el sílabo oficial en HTML.</p>
+    <p class="hero-desc">Selecciona cualquier curso para consultar su sílabo completo: sumilla, docente, contenidos por semana, metodología, evaluación y bibliografía oficial.</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">6</div><div class="stat-label">Cursos</div></div>
-      <div class="stat"><div class="stat-num">21.5</div><div class="stat-label">Créditos totales</div></div>
+      <div class="stat"><div class="stat-num">24</div><div class="stat-label">Créditos totales</div></div>
       <div class="stat"><div class="stat-num">18</div><div class="stat-label">Semanas</div></div>
+      <div class="stat"><div class="stat-num">2026-I</div><div class="stat-label">Semestre</div></div>
     </div>
   </div>
 </section>
 
-<!-- GRID -->
 <main class="grid-section">
   <p class="section-label">Catálogo de asignaturas</p>
   <h2 class="section-title">Todos los cursos</h2>
   <div class="courses-grid" id="courses-grid"></div>
 </main>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <div class="modal-header" id="modal-header">
@@ -588,7 +199,7 @@
 
 <footer>
   <p><strong>Universidad Nacional del Altiplano</strong> — Facultad de Ingeniería Estadística e Informática</p>
-  <p style="margin-top:6px;">Portal de Sílabos · Ciclo VI · 2026</p>
+  <p style="margin-top:6px;">Portal de Sílabos · Ciclo VI · Semestre 2026-I</p>
 </footer>
 
 <script>
@@ -598,84 +209,103 @@ const COURSES = [
     title: "Aprendizaje No Supervisado",
     credits: 4,
     hp: 2, hs: 0, ht: 3, hv: 0,
+    horasLectivas: "03h teóricas, 02h prácticas — Total 05h",
+    horasNoLectivas: "1h 40min",
+    horasVirtuales: "02 por unidad",
+    area: "Estudios de especialidad",
+    nivel: "AVANZADO",
+    modalidad: "Presencial",
+    duracion: "Del 30 de Marzo al 31 de Julio del 2026",
+    semestre: "2026-I",
+    curriculo: "2021-2025 V.2.0",
     prereq: "EST312 - Estadística Computacional",
     color: "#5B4A8A",
     colorLight: "#F3F0FA",
-    professor: "Prof. Dr. Leonid Alemán Gonzales",
+    professor: "Mg. Leonid Alemán Gonzales",
+    professorFull: "ALEMAN GONZALES LEONID — Nombrado-ordinario, Profesor Asociado · Especialidad: Ingeniería de Software / Ciencia de Datos",
     contact: "laleman@unap.edu.pe",
+    aula: "Aula 201 / Pabellón A y Laboratorio 02",
     sumilla: [
-      "El curso de Aprendizaje No Supervisado corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para analizar, implementar y evaluar algoritmos de aprendizaje automático que permiten descubrir patrones y estructuras ocultas en datos sin etiquetas previas, fundamentales en ciencia de datos e inteligencia artificial.",
-      "El curso aborda desde los fundamentos matemáticos y estadísticos hasta la implementación computacional de algoritmos de agrupamiento, reducción de dimensionalidad, detección de anomalías y modelado generativo. Se utilizan herramientas del ecosistema Python (scikit-learn, TensorFlow, PyTorch) y entornos colaborativos como Google Colab y Jupyter Notebooks.",
-      "Los estudiantes aplicarán los algoritmos en conjuntos de datos reales, desarrollando criterio para seleccionar el método más adecuado según el contexto, interpretar resultados y comunicar hallazgos de manera rigurosa."
+      "El curso de Aprendizaje No Supervisado corresponde al área curricular de estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre un conjunto de datos y sus aplicaciones.",
+      "Su contenido está organizado en: Unidad I — Metodología, Técnicas de preprocesamiento y reducción de dimensionalidad en variables de problemas de aplicación. Unidad II — Técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas."
     ],
-    logro: "Al finalizar el curso, el estudiante implementa y evalúa algoritmos de aprendizaje no supervisado aplicando técnicas de agrupamiento, reducción dimensional y detección de anomalías sobre datos reales, seleccionando el método más adecuado según el contexto y comunicando los resultados con rigor estadístico.",
+    logro: "Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones: Metodología, Reducción de dimensionalidad, Agrupamiento y Reglas de decisiones.",
+    perfilEgresado: "CE2. Construye y analiza modelos estadísticos y/o algoritmos computacionales para la toma de mejores decisiones en condiciones de incertidumbre, para el desarrollo de la región y el país, asumiendo una actitud científica y ética, utilizando técnicas estadísticas y/o informáticas referidas a la ciencia de datos.",
     unidades: [
       {
-        nombre: "Unidad I: Fundamentos y Agrupamiento",
+        nombre: "Unidad I: Metodología, Preprocesamiento y Reducción de Dimensionalidad",
         semanas: "1 al 9",
-        logro: "Implementa y evalúa algoritmos de agrupamiento clásicos sobre conjuntos de datos reales, analizando sus fundamentos matemáticos y métricas de validación.",
+        duracion: "Del 30 de Marzo al 1 de Junio del 2026 (Total 45 horas)",
+        horasVirt: "04",
+        avance: "55%",
+        logro: "Aplica adecuadamente la metodología, técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.",
         semanas_list: [
-          { n: "Semana 1", t: "Introducción al aprendizaje no supervisado. Tipos, aplicaciones y comparación con aprendizaje supervisado." },
-          { n: "Semana 2", t: "Preprocesamiento de datos: normalización, imputación, codificación y manejo de valores atípicos." },
-          { n: "Semana 3", t: "K-Means: fundamentos, algoritmo, criterio de convergencia y método del codo." },
-          { n: "Semana 4", t: "Clustering jerárquico: dendrogramas, linkage y criterios de corte." },
-          { n: "Semana 5", t: "DBSCAN y clustering basado en densidad: parámetros epsilon y MinPts." },
-          { n: "Semana 6", t: "Métricas de evaluación: Silhouette Score, Davies-Bouldin, Adjusted Rand Index." },
-          { n: "Semana 7", t: "Clustering espectral y métodos basados en grafos." },
-          { n: "Semana 8", t: "Comparativa de algoritmos de agrupamiento: ventajas, limitaciones y casos de uso." },
-          { n: "Semana 9", t: "Sustentación parcial: análisis de agrupamiento en dataset real con documentación en Colab." },
+          { n: "Semana 1", t: "Introducción al aprendizaje automático, tipos de aprendizaje automático, aprendizaje no supervisado, diferencias respecto a otros tipos, aplicaciones en la vida real." },
+          { n: "Semana 2", t: "Proyectos con la metodología para aprendizaje automático no supervisado, flujo de trabajo y elementos de trabajo." },
+          { n: "Semana 3", t: "Preprocesamiento, preparación de datos, limpieza, transformación de datos y codificación de variables." },
+          { n: "Semana 4", t: "Data Wrangling y Feature Engineering." },
+          { n: "Semana 5", t: "Técnicas de reducción de dimensionalidad y extracción de características: métodos lineales y no lineales (manifold learning). PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE." },
+          { n: "Semana 6", t: "Redes neuronales. Reducción de dimensionalidad basada en redes neuronales. [Evaluación de técnicas básicas ANS — 50%]" },
+          { n: "Semana 7", t: "Reducción de dimensionalidad basada en técnicas probabilísticas y basada en grafos. Factor análisis, Gaussian Processes Latent Variable Models, Laplacian Eigenmaps." },
+          { n: "Semana 8", t: "Técnicas avanzadas de extracción de características: SimCLR, extracción para detección de anomalías, Isolation Forest, One-class SVM." },
+          { n: "Semana 9", t: "Avance del proyecto de aplicación. [Evaluación parcial de reducción de dimensionalidad — 50%]" },
         ]
       },
       {
-        nombre: "Unidad II: Reducción Dimensional y Modelos Generativos",
+        nombre: "Unidad II: Agrupamiento, Reglas de Asociación y Aplicaciones Avanzadas",
         semanas: "10 al 18",
-        logro: "Aplica técnicas de reducción dimensional y modelos generativos para extraer representaciones significativas de datos de alta dimensión.",
+        duracion: "Del 1 de Junio al 31 de Julio del 2026 (Total 45 horas)",
+        horasVirt: "04",
+        avance: "100%",
+        logro: "Aplica adecuadamente técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.",
         semanas_list: [
-          { n: "Semana 10", t: "Análisis de Componentes Principales (PCA): varianza explicada y biplots." },
-          { n: "Semana 11", t: "t-SNE y UMAP: visualización de datos de alta dimensión." },
-          { n: "Semana 12", t: "Autoencoders: arquitectura, entrenamiento y representaciones latentes." },
-          { n: "Semana 13", t: "Autoencoders variacionales (VAE) y generación de datos." },
-          { n: "Semana 14", t: "Detección de anomalías: Isolation Forest, LOF y One-Class SVM." },
-          { n: "Semana 15", t: "Modelos de mezcla Gaussiana (GMM) y algoritmo EM." },
-          { n: "Semana 16", t: "Reglas de asociación: Apriori, FP-Growth y métricas soporte/confianza/lift." },
-          { n: "Semana 17", t: "Proyecto integrador: pipeline completo de análisis no supervisado." },
-          { n: "Semana 18", t: "Presentación final, revisión de portafolio y reflexión del aprendizaje." },
+          { n: "Semana 10", t: "Clustering con métodos particionales (centroides): K-Means, K-Medoids. El concepto de distancia en diferentes contextos." },
+          { n: "Semana 11", t: "Agrupamiento jerárquico (Agglomerative Clustering), métodos basados en densidad: DBSCAN, HDBSCAN." },
+          { n: "Semana 12", t: "Agrupamiento probabilístico (Gaussian Mixture Model) y basados en grafos (Spectral Clustering)." },
+          { n: "Semana 13", t: "Agrupamiento difuso (Fuzzy C-Means), basados en subespacios (CLIQUE, PROCLUS), Deep Clustering (DEC)." },
+          { n: "Semana 14", t: "Reglas de asociación: métricas fundamentales y avanzadas (support, confidence, conviction, leverage, Jaccard). Algoritmos: Apriori, FP-Growth, Eclat." },
+          { n: "Semana 15", t: "Variantes y extensiones: asociación ponderada, negativa, alto orden, reglas secuenciales. PrefixSpan, SPADE. [Evaluación de técnicas avanzadas — 50%]" },
+          { n: "Semana 16", t: "Enfoques avanzados: datos continuos, big data, reglas basadas en grafos, aprendizaje profundo." },
+          { n: "Semana 17", t: "Integración y revisión de proyectos pertinentes al aprendizaje no supervisado." },
+          { n: "Semana 18", t: "Presentación y defensa del proyecto. [Evaluación final — 50%]" },
         ]
       }
     ],
     evaluacion: [
-      { item: "Laboratorios en Google Colab y portafolio técnico", pct: 25 },
-      { item: "Entregable parcial — Unidad I", pct: 25 },
-      { item: "Seguimiento semanal y avances documentados", pct: 20 },
-      { item: "Proyecto final, informe y sustentación", pct: 25 },
-      { item: "Participación, autoevaluación y coevaluación", pct: 5 },
+      { item: "Evaluación de técnicas básicas ANS (Unidad I — EVI 1)", pct: 25 },
+      { item: "Evaluación parcial de reducción de dimensionalidad (Unidad I — EVI 2)", pct: 25 },
+      { item: "Evaluación de técnicas avanzadas de agrupamiento (Unidad II — EVI 1)", pct: 25 },
+      { item: "Evaluación final de Aprendizaje no Supervisado (Unidad II — EVI 2)", pct: 25 },
     ],
+    formulaCalif: "PF = 50% (UPP1) + 50% (UPP2) · Cada UPP = 50% (EVI1) + 50% (EVI2)",
     metodologia: [
-      "Aprendizaje basado en problemas con datasets reales.",
-      "Implementación progresiva en Python y Google Colab.",
-      "Revisiones semanales de código y resultados.",
-      "Exposiciones técnicas individuales y grupales.",
-      "Documentación científica de experimentos.",
+      "Actividades síncronas: videoconferencias, foros de discusión en línea, sala de chat.",
+      "Actividades asíncronas: foros de información, revisión de tareas, materiales de lectura, diapositivas y vídeos.",
+      "Análisis de textos, artículos y guías. Debate, análisis y discriminación de ideas.",
+      "Plataforma en la nube: Google Colab y Jupyter Notebook.",
+      "Uso de lenguajes R y Python para resolución de casos y exposición de soluciones.",
+      "Investigación formativa con recursos bibliográficos usando normas APA e IEEE.",
+      "Responsabilidad social: análisis de problemas reales y difusión a través de medios sociales.",
     ],
     entregables: [
-      "Notebooks documentados por unidad temática.",
-      "Análisis comparativo de algoritmos de agrupamiento.",
-      "Informe técnico de reducción dimensional.",
-      "Proyecto integrador con pipeline completo.",
-      "Presentación final tipo demo científico.",
+      "Avance del proyecto de aplicación (Semana 9).",
+      "Presentación y defensa del proyecto final (Semanas 7-8 de julio 2026).",
+      "Resolución de tests valorativos por unidad.",
+      "Defensa apropiada del trabajo desarrollado.",
     ],
     recursos: [
       { name: "Google Colab", url: "https://colab.research.google.com/" },
       { name: "scikit-learn", url: "https://scikit-learn.org/" },
-      { name: "PyTorch", url: "https://pytorch.org/" },
+      { name: "Python ML Tutorials", url: "https://realpython.com/tutorials/machine-learning/" },
       { name: "Kaggle Datasets", url: "https://www.kaggle.com/datasets" },
     ],
     bibliografia: [
-      "Bishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.",
-      "Géron, A. (2022). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow. O'Reilly.",
-      "Murphy, K. P. (2022). Probabilistic Machine Learning: An Introduction. MIT Press.",
-      "Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep Learning. MIT Press.",
-      "Han, J., Kamber, M. & Pei, J. (2011). Data Mining: Concepts and Techniques. Morgan Kaufmann.",
+      "Goodfellow, I. & Bengio, Y. (2016). Deep Learning. MIT Press.",
+      "Bishop, C. (2006). Pattern Recognition and Machine Learning. Springer.",
+      "Hastie, T., Tibshirani, R. & Friedman, J. (2014). The Elements of Statistical Learning. 2da ed. Springer.",
+      "Barber, D. (2017). Bayesian Reasoning and Machine Learning. 3ra ed. Cambridge University Press.",
+      "Duda, R., Hart, P. & Stork (2000). Pattern Classification. Wiley Interscience, 2da ed.",
+      "Theodoridis, S. (2017). Machine Learning: A Bayesian and Optimization Perspective. Elsevier.",
     ]
   },
   {
@@ -683,21 +313,36 @@ const COURSES = [
     title: "Gestión de Proyectos TICs",
     credits: 4,
     hp: 2, hs: 0, ht: 3, hv: 0,
+    horasLectivas: "03h teóricas, 02h prácticas — Total 05h",
+    horasNoLectivas: "1h 40min",
+    horasVirtuales: "02 por unidad",
+    area: "Estudios de especialidad",
+    nivel: "AVANZADO",
+    modalidad: "Presencial",
+    duracion: "Del 30 de Marzo al 31 de Julio del 2026",
+    semestre: "2026-I",
+    curriculo: "2021-2025 V.2.0",
     prereq: "EST313 - Sistemas de Gestión de Base de Datos II",
     color: "#2356A0",
     colorLight: "#EEF3FB",
-    professor: "Prof. M. Sc. Romel Percy Melgarejo Bolívar",
+    professor: "M. Sc. Romel Percy Melgarejo Bolívar",
+    professorFull: "MELGAREJO BOLÍVAR ROMEL PERCY — Docente · Especialidad: Gestión de Proyectos TICs",
     contact: "permelro@unap.edu.pe",
+    aula: "Por definir",
     sumilla: [
       "El curso de Gestión de Proyectos TICs corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Tiene como propósito desarrollar competencias para formular, planificar, ejecutar, monitorear, controlar y cerrar proyectos tecnológicos vinculados a la Ingeniería Estadística e Informática.",
       "El curso se orienta a la gestión de portafolios de proyectos desde el inicio hasta el cierre, integrando las principales líneas de desarrollo profesional de la carrera: desarrollo de software, programación, diseño de sistemas, redes y telecomunicaciones, estadística aplicada, ciencia de datos, inteligencia artificial, análisis estadístico y asesorías de tesis relacionadas con el procesamiento de datos.",
       "Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, GitHub Projects y Notion, aplicando metodologías tradicionales, ágiles e híbridas como PMBOK, Scrum, Kanban, Design Thinking y gestión basada en evidencias. El curso promueve el trabajo en equipo, la trazabilidad, la documentación técnica y la entrega progresiva de valor mediante proyectos reales."
     ],
     logro: "Al finalizar el curso, el estudiante gestiona portafolios y proyectos de Tecnologías de Información y Comunicación aplicando metodologías tradicionales, ágiles e híbridas para planificar, ejecutar, monitorear y controlar iniciativas relacionadas con desarrollo de software, redes, estadística, ciencia de datos e investigación aplicada, utilizando herramientas digitales que garanticen trazabilidad, calidad y cumplimiento de objetivos durante todo el ciclo de vida del proyecto.",
+    perfilEgresado: "Gestiona proyectos TIC aplicando metodologías modernas, herramientas digitales y trabajo colaborativo para generar valor en organizaciones e instituciones.",
     unidades: [
       {
-        nombre: "Unidad I: Formulación, planificación y organización del portafolio TIC",
+        nombre: "Unidad I: Formulación, Planificación y Organización del Portafolio TIC",
         semanas: "1 al 9",
+        duracion: "Del 30 de Marzo al 1 de Junio del 2026",
+        horasVirt: "02",
+        avance: "50%",
         logro: "Formula y organiza un proyecto TIC real mediante la identificación de problemas, definición de objetivos, planificación de entregables y construcción de un portafolio digital en GitHub y Notion.",
         semanas_list: [
           { n: "Semana 1", t: "Presentación del curso. Enfoque por proyectos y portafolios. Líneas de trabajo: software, redes, estadística, ciencia de datos e investigación." },
@@ -712,8 +357,11 @@ const COURSES = [
         ]
       },
       {
-        nombre: "Unidad II: Ejecución, seguimiento, control y cierre de proyectos TIC",
+        nombre: "Unidad II: Ejecución, Seguimiento, Control y Cierre de Proyectos TIC",
         semanas: "10 al 18",
+        duracion: "Del 1 de Junio al 31 de Julio del 2026",
+        horasVirt: "02",
+        avance: "100%",
         logro: "Ejecuta, monitorea y cierra un proyecto TIC aplicando metodologías ágiles, gestión visual, control de riesgos, indicadores de avance y presentación de resultados mediante un portafolio digital funcional.",
         semanas_list: [
           { n: "Semana 10", t: "PMBOK aplicado a proyectos TIC. Enfoques predictivos, adaptativos e híbridos." },
@@ -730,14 +378,15 @@ const COURSES = [
     ],
     evaluacion: [
       { item: "Portafolio digital en Notion y GitHub", pct: 25 },
-      { item: "Entregable parcial — Unidad I", pct: 25 },
+      { item: "Entregable parcial — Unidad I (Project Charter + sustentación)", pct: 25 },
       { item: "Seguimiento, avances y gestión del proyecto", pct: 20 },
       { item: "Producto final, informe y sustentación", pct: 25 },
       { item: "Participación, autoevaluación y coevaluación", pct: 5 },
     ],
+    formulaCalif: "PF = 50% (UPP1) + 50% (UPP2) · Cada UPP = 50% (EVI1) + 50% (EVI2)",
     metodologia: [
-      "Aprendizaje basado en proyectos.",
-      "Trabajo colaborativo por equipos.",
+      "Aprendizaje basado en proyectos reales.",
+      "Trabajo colaborativo por equipos con roles definidos.",
       "Uso obligatorio de GitHub, GitHub Projects y Notion.",
       "Aplicación de Scrum, Kanban, PMBOK y metodologías híbridas.",
       "Desarrollo de portafolios digitales de proyectos.",
@@ -746,8 +395,8 @@ const COURSES = [
     ],
     entregables: [
       "Idea de proyecto TIC.",
-      "Project Charter.",
-      "Portafolio en Notion.",
+      "Project Charter (Acta de Constitución del Proyecto).",
+      "Portafolio digital en Notion.",
       "Repositorio en GitHub con README, issues y milestones.",
       "Tablero Kanban o Scrum activo.",
       "Bitácora de avances semanal.",
@@ -755,7 +404,7 @@ const COURSES = [
       "Matriz de riesgos.",
       "Informe técnico o científico del proyecto.",
       "Producto funcional, prototipo, dashboard o análisis estadístico.",
-      "Presentación final del proyecto.",
+      "Presentación final del proyecto (Demo Day).",
     ],
     recursos: [
       { name: "GitHub", url: "https://github.com/" },
@@ -765,7 +414,6 @@ const COURSES = [
       { name: "Scrum.org", url: "https://www.scrum.org/" },
       { name: "Trello", url: "https://trello.com/" },
       { name: "Jira", url: "https://www.atlassian.com/software/jira" },
-      { name: "Google Colab", url: "https://colab.research.google.com/" },
     ],
     bibliografia: [
       "Project Management Institute. (2021). PMBOK® Guide – Seventh Edition. PMI.",
@@ -782,84 +430,95 @@ const COURSES = [
     title: "Arquitectura de Redes y Protocolos",
     credits: 3,
     hp: 2, hs: 0, ht: 2, hv: 0,
+    horasLectivas: "02h teóricas, 02h prácticas — Total 04h",
+    horasNoLectivas: "1h 20min",
+    horasVirtuales: "02 por unidad",
+    area: "Estudios de especialidad",
+    nivel: "BÁSICO",
+    modalidad: "Presencial",
+    duracion: "Del 30 de Marzo al 31 de Julio del 2026",
+    semestre: "2026-I",
+    curriculo: "2021-2025 V.2.0",
     prereq: "ELE311 - Arquitectura de Computadoras",
     color: "#2A7F8A",
     colorLight: "#EEF8F9",
-    professor: "Prof. Ing. Área de Redes y Telecomunicaciones",
+    professor: "Ing. Alejandro Apaza Tarqui",
+    professorFull: "APAZA TARQUI ALEJANDRO — Nombrado, Profesor Principal · Especialidad: Ing. Estadístico, Sistemas e Informática",
     contact: "redes@unap.edu.pe",
+    aula: "Aula 205-A",
     sumilla: [
-      "El curso de Arquitectura de Redes y Protocolos corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Proporciona al estudiante los fundamentos teóricos y prácticos de las redes de computadoras modernas, desde la arquitectura física hasta los protocolos de aplicación.",
-      "El curso cubre el modelo OSI y TCP/IP en profundidad, el diseño de redes LAN/WAN, protocolos de enrutamiento, seguridad en redes, redes inalámbricas y tendencias como SDN (Software Defined Networking) e IoT. Se utilizan simuladores como Cisco Packet Tracer y GNS3 para la práctica en entornos controlados.",
-      "Los estudiantes diseñarán, configurarán y documentarán arquitecturas de red reales, desarrollando competencias para el análisis de tráfico, resolución de problemas y aseguramiento de la calidad del servicio."
+      "El curso de Arquitectura de Redes y Protocolos corresponde al área de estudios de especialidad, es de naturaleza teórica-práctica, cuyo propósito es proporcionar al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre las que se fundamenta su lógica de funcionamiento con énfasis en la conectividad usando las modernas tecnologías de transmisión de datos y comunicaciones.",
+      "Unidad I: Fundamentos, arquitectura, tipos, medios, tipos y protocolos de comunicación de datos. Unidad II: Fundamentos de servicios y seguridad con talleres de simulación de la red de comunicación de datos de una organización."
     ],
-    logro: "Al finalizar el curso, el estudiante diseña, configura y documenta arquitecturas de red aplicando los protocolos del modelo TCP/IP, implementando soluciones de enrutamiento, seguridad y calidad de servicio en entornos simulados y reales.",
+    logro: "Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes de telecomunicaciones utilizando algunas herramientas de simulación.",
+    perfilEgresado: "Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.",
     unidades: [
       {
-        nombre: "Unidad I: Fundamentos y Capas de Red",
+        nombre: "Unidad I: Fundamentos de Comunicación de Datos y Arquitectura de Redes",
         semanas: "1 al 9",
-        logro: "Analiza e implementa los protocolos fundamentales de las capas de red, enlace y transporte, configurando dispositivos en entornos simulados.",
+        duracion: "Del 30 de Marzo al 1 de Junio del 2026 (Total 36 horas)",
+        horasVirt: "02",
+        avance: "100%",
+        logro: "Determina las condiciones técnicas y arquitectónicas del funcionamiento de Redes Informáticas y teleprocesamiento tomando en cuenta arquitectura, medios, elementos y protocolos.",
         semanas_list: [
-          { n: "Semana 1", t: "Introducción a las redes de computadoras. Modelos OSI y TCP/IP. Historia y evolución." },
-          { n: "Semana 2", t: "Medios de transmisión: cables, fibra óptica y redes inalámbricas. Estándares físicos." },
-          { n: "Semana 3", t: "Capa de enlace de datos: Ethernet, switches, VLANs y Spanning Tree Protocol." },
-          { n: "Semana 4", t: "Capa de red: IPv4, IPv6, subneting y superneting (VLSM/CIDR)." },
-          { n: "Semana 5", t: "Protocolo IP: fragmentación, TTL, ARP e ICMP. Laboratorio de diagnóstico." },
-          { n: "Semana 6", t: "Capa de transporte: TCP vs UDP, control de flujo, congestión y Three-Way Handshake." },
-          { n: "Semana 7", t: "Enrutamiento estático y dinámico: RIP, OSPF y EIGRP. Comparativa." },
-          { n: "Semana 8", t: "NAT/PAT, DHCP y DNS: configuración y troubleshooting." },
-          { n: "Semana 9", t: "Evaluación parcial: diseño y configuración de red en Packet Tracer." },
+          { n: "Semana 1", t: "Conceptos, elementos, dispositivos, Arquitectura de Redes y Protocolos, teleproceso y proyectos de conectividad. [Recuperación de saberes previos]" },
+          { n: "Semana 2", t: "Paradigmas de transmisión y acceso al medio de datos: conmutación, modulación y multiplexación. [Mapas conceptuales]" },
+          { n: "Semana 3", t: "Tipos de redes PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet, intranet y extranet. [Debate]" },
+          { n: "Semana 4", t: "Topologías físicas y lógicas de la red, tecnologías, cableado estructurado, Redes de Banda Ancha. Implementación en Cisco Packet Tracer. [Examen escrito 100%]" },
+          { n: "Semana 5", t: "Protocolos, Arquitecturas y capas de modelos OSI y TCP/IP: interfaces, medidas, algoritmos y servicios. [Debate]" },
+          { n: "Semana 6", t: "Capa física de OSI: medios de comunicación, señalización, representación y codificación física. [Debate]" },
+          { n: "Semana 7", t: "Tecnología Ethernet-GigabitEthernet (IEEE 802.x), control de acceso al medio: NICs, HUBS y SWITCHES. Protocolo ARP. Implementa conectividad UTP y Coaxial." },
+          { n: "Semana 8", t: "Capa de Enlace de Datos, técnicas de control de acceso al medio, entramado de datos. [Exposición]" },
+          { n: "Semana 9", t: "Capa Red (Internet): Enrutamiento IPv4, dispositivos y protocolos, paquetes, procesos, interfaces y direcciones IP. Presentación del producto de la Unidad I." },
         ]
       },
       {
-        nombre: "Unidad II: Seguridad, Servicios y Tendencias",
-        semanas: "10 al 18",
-        logro: "Implementa soluciones de seguridad perimetral, servicios de red avanzados y comprende las tendencias actuales en arquitecturas de red modernas.",
+        nombre: "Unidad II: Diseño Arquitectónico Lógico y Protocolar en Capas OSI-TCP/IP",
+        semanas: "10 al 17",
+        duracion: "Del 1 de Junio al 27 de Julio del 2026 (Total 32 horas)",
+        horasVirt: "02",
+        avance: "100%",
+        logro: "Diseño arquitectónico lógico y protocolar en diferentes capas de OSI y TCP/IP.",
         semanas_list: [
-          { n: "Semana 10", t: "Seguridad en redes: firewalls, ACLs, IDS/IPS y zonas DMZ." },
-          { n: "Semana 11", t: "VPNs: IPSec, SSL/TLS, OpenVPN y túneles GRE." },
-          { n: "Semana 12", t: "Redes inalámbricas: 802.11a/b/g/n/ac/ax, WPA3 y configuración de APs." },
-          { n: "Semana 13", t: "Calidad de servicio (QoS): DiffServ, DSCP y gestión de ancho de banda." },
-          { n: "Semana 14", t: "Protocolos de capa de aplicación: HTTP/2, SMTP, FTP, SSH y SNMP." },
-          { n: "Semana 15", t: "Software Defined Networking (SDN) y NFV: conceptos y arquitectura OpenFlow." },
-          { n: "Semana 16", t: "IoT y redes de sensores: MQTT, CoAP y protocolos LPWAN." },
-          { n: "Semana 17", t: "Análisis de tráfico con Wireshark: captura, filtros y diagnóstico." },
-          { n: "Semana 18", t: "Proyecto final: diseño de red empresarial. Presentación y evaluación." },
+          { n: "Semana 10", t: "Dispositivo Router: técnicas de enrutamiento, IPv6, protocolos, paquetes, procesos, interfaces y estructura. [Exposición]" },
+          { n: "Semana 11", t: "Configuración de servicios de Router: direccionamiento de IPs de redes y subredes con Cisco Packet Tracer. [Exposición]" },
+          { n: "Semana 12", t: "Capas Transporte, Sesión, Presentación y Aplicación: TCP/UDP, NFS, DNS, LDAP, TELNET, FTP, SNMP y otros. [Exposición]" },
+          { n: "Semana 13", t: "Enrutamiento estático y dinámico: configuración de servicios. [Examen Unidad 2 — 100%]. Proyecto: Servidores DNS, HTTP, FTP y Correo en Cisco Packet Tracer." },
+          { n: "Semana 14", t: "Redes Inalámbricas (WLAN): Arquitectura, servicios y control de acceso al medio IEEE 802.11. Práctica en Cisco Packet Tracer." },
+          { n: "Semana 15", t: "Redes Satelitales: Arquitectura, servicios y control de acceso al medio de redes globales. [Forum]" },
+          { n: "Semana 16", t: "Arquitectura, estructura y características de Redes Ópticas. Formulación de proyecto de Red de Área Local (LAN) con subneteo." },
+          { n: "Semana 17", t: "Fundamentos de Seguridad de la Red de Computadoras. [Examen escrito]" },
         ]
       }
     ],
     evaluacion: [
-      { item: "Prácticas de laboratorio y reportes técnicos", pct: 25 },
-      { item: "Evaluación parcial — diseño en Packet Tracer", pct: 25 },
-      { item: "Seguimiento de avances y participación", pct: 20 },
-      { item: "Proyecto final de red empresarial y sustentación", pct: 25 },
-      { item: "Autoevaluación y coevaluación", pct: 5 },
+      { item: "Unidad I — EV (100%): prueba escrita y exposición", pct: 50 },
+      { item: "Unidad II — EV (100%): prueba escrita y exposición", pct: 50 },
     ],
+    formulaCalif: "PF = 50% (UPP1) + 50% (UPP2) · UPP1 = 40% EVI1 + 60% EVI2 · UPP2 = 30% EVI1 + 20% EVI2 + 50% EVI3",
     metodologia: [
-      "Clases teóricas con demostraciones en simulador.",
-      "Laboratorios prácticos en Cisco Packet Tracer y GNS3.",
-      "Resolución de casos reales y troubleshooting.",
-      "Trabajo en equipo para diseño de infraestructura.",
-      "Presentaciones técnicas de proyectos de red.",
+      "Exposiciones y conferencias magistrales, videoconferencias, foros de debate.",
+      "Enseñanza basada en problemas, casos y proyectos.",
+      "Comprensión de textos, trabajos grupales, debate y exposición.",
+      "Laboratorios con Cisco Packet Tracer y Benchwork.",
+      "Aulas virtuales asíncronas y síncronas, videos de YouTube, videoconferencias grabadas.",
+      "Investigación activa y seminarios de investigación (semilleros).",
     ],
     entregables: [
-      "Reportes de laboratorio por unidad.",
-      "Topología de red documentada (archivo Packet Tracer).",
-      "Informe de seguridad y configuración de servicios.",
-      "Proyecto final de red empresarial completa.",
-      "Presentación técnica con demo en vivo.",
+      "Diseño y construcción de medio físico guiado con cable par trenzado UTP y Coaxial (Semana 9).",
+      "Diseño y configuración de Servidores DHCP, DNS, Web, FTP y Correos en Cisco Packet Tracer (Semana 17).",
     ],
     recursos: [
       { name: "Cisco Packet Tracer", url: "https://www.netacad.com/courses/packet-tracer" },
-      { name: "GNS3", url: "https://www.gns3.com/" },
-      { name: "Wireshark", url: "https://www.wireshark.org/" },
       { name: "Cisco NetAcad", url: "https://www.netacad.com/" },
+      { name: "Wireshark", url: "https://www.wireshark.org/" },
     ],
     bibliografia: [
-      "Tanenbaum, A. S. & Wetherall, D. J. (2011). Computer Networks (5th ed.). Prentice Hall.",
-      "Forouzan, B. A. (2013). Data Communications and Networking (5th ed.). McGraw-Hill.",
-      "Cisco Systems. CCNA Routing & Switching Official Cert Guide. Pearson.",
-      "Stallings, W. (2014). Data and Computer Communications (10th ed.). Pearson.",
-      "Kurose, J. F. & Ross, K. W. (2021). Computer Networking: A Top-Down Approach (8th ed.). Pearson.",
+      "Apaza T., A. (2020). Redes y Teleproceso, segunda edición. Puno, Perú: Lucero impresiones.",
+      "Tanenbaum, A. S. & Wetherall, D. J. (2012). Redes de computadoras, 5ta edición. Pearson.",
+      "Dordoigne, J. (2015). Redes informáticas — Nociones fundamentales, 5ta edición. Ediciones Eni.",
+      "Stallings, W. (2004). Comunicaciones y Redes de computadores, 7ma edición. PEARSON.",
+      "Domingo, A. A. (2013). Redes locales. McGraw-Hill.",
     ]
   },
   {
@@ -867,84 +526,90 @@ const COURSES = [
     title: "Series de Tiempo",
     credits: 4,
     hp: 2, hs: 0, ht: 3, hv: 0,
+    horasLectivas: "03h teóricas, 02h prácticas — Total 05h",
+    horasNoLectivas: "1h 40min",
+    horasVirtuales: "02 por unidad",
+    area: "Estudios de especialidad",
+    nivel: "AVANZADO",
+    modalidad: "Presencial",
+    duracion: "Del 30 de Marzo al 31 de Julio del 2026",
+    semestre: "2026-I",
+    curriculo: "2021-2025 V.2.0",
     prereq: "EST208 - Estadística No Paramétrica",
     color: "#2E7D52",
     colorLight: "#EEF8F2",
-    professor: "Prof. M. Sc. Área de Estadística Aplicada",
+    professor: "Dr. César Augusto Lluen Vallejos",
+    professorFull: "LLUEN VALLEJOS CESAR AUGUSTO — Nombrado, Principal a D.E. · Especialidad: Lic. en Estadística",
     contact: "estadistica@unap.edu.pe",
+    aula: "Aula 205 Pabellón Antiguo — Clases teóricas y prácticas con Laptops en aula",
     sumilla: [
-      "El curso de Series de Tiempo corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para el análisis, modelado y pronóstico de datos secuenciales ordenados en el tiempo, con aplicaciones en economía, ciencia de datos, meteorología, epidemiología e ingeniería.",
-      "El curso abarca desde los fundamentos estadísticos de la estacionariedad y la autocorrelación hasta los modelos más avanzados de pronóstico como ARIMA, SARIMA, modelos de suavizamiento exponencial, modelos de espacio de estados y redes neuronales recurrentes aplicadas a series temporales.",
-      "Los estudiantes implementarán los modelos en R y Python, aplicándolos en conjuntos de datos reales, seleccionando el modelo óptimo mediante criterios de información y validando su capacidad predictiva con métricas de error apropiadas."
+      "El curso de Series de Tiempo corresponde al área de estudios de especialidad, es de naturaleza teórica-práctica y tiene como propósito desarrollar habilidades y destrezas para obtener modelos univariantes orientados a la toma de decisiones.",
+      "Primera Unidad: Métodos de suavizamiento, técnicas de descomposición, modelos lineales estacionarios AR, MA, ARMA y no estacionarios (ARIMA). Segunda Unidad: Modelos estacionales SAR, SMA, SARMA y SARIMA, modelos heterocedásticos (ARCH, GARCH), modelos multivariantes de series temporales y modelos de redes neuronales."
     ],
-    logro: "Al finalizar el curso, el estudiante analiza, modela y pronostica series de tiempo aplicando métodos estadísticos clásicos y modernos, seleccionando el modelo óptimo y evaluando su desempeño predictivo mediante métricas adecuadas sobre datos reales.",
+    logro: "El estudiante demostrará una actitud responsable y ética en la producción de pronósticos para la toma de decisiones que resuelvan los problemas de las realidades en investigación.",
+    perfilEgresado: "Produce pronósticos para tomar decisiones que resuelvan los problemas de las realidades en investigación.",
     unidades: [
       {
-        nombre: "Unidad I: Fundamentos y Modelos Clásicos",
+        nombre: "Unidad I: Modelos Univariantes — Box-Jenkins (AR, MA, ARMA, ARIMA)",
         semanas: "1 al 9",
-        logro: "Analiza las propiedades estadísticas de series de tiempo e implementa modelos ARIMA y sus variantes para el pronóstico de datos estacionarios y no estacionarios.",
+        duracion: "Del 30 de Marzo al 1 de Junio del 2026 (Total 45 horas)",
+        horasVirt: "02",
+        avance: "50%",
+        logro: "Produce información de pronósticos mediante la metodología Box-Jenkins con los modelos AR, MA, ARMA, ARIMA para realidades en investigación orientada a la toma de decisiones.",
         semanas_list: [
-          { n: "Semana 1", t: "Introducción a las series de tiempo. Componentes: tendencia, estacionalidad, ciclo e irregularidad." },
-          { n: "Semana 2", t: "Visualización y análisis exploratorio de series temporales en R y Python." },
-          { n: "Semana 3", t: "Estacionariedad: pruebas ADF, KPSS y PP. Transformaciones para estabilizar varianza." },
-          { n: "Semana 4", t: "Funciones de autocorrelación (ACF) y autocorrelación parcial (PACF)." },
-          { n: "Semana 5", t: "Modelos AR, MA y ARMA: identificación, estimación y diagnóstico de residuos." },
-          { n: "Semana 6", t: "Modelos ARIMA: diferenciación, selección de órdenes y criterios AIC/BIC." },
-          { n: "Semana 7", t: "Modelos SARIMA: manejo de estacionalidad. Aplicaciones en datos reales." },
-          { n: "Semana 8", t: "Suavizamiento exponencial: simple, Holt y Holt-Winters." },
-          { n: "Semana 9", t: "Evaluación parcial: modelado ARIMA completo sobre dataset real." },
+          { n: "Semana 1", t: "Evidencia 1 (EV1 — 20%): Aborda un tema de ST de la realidad y explica los aspectos básicos aplicados a la serie de tiempo." },
+          { n: "Semanas 2–5", t: "Evidencia 2 (EV2 — 30%): Exploración de patrones y análisis clásico. Métodos de suavizamiento y técnicas de descomposición." },
+          { n: "Semanas 6–9", t: "Evidencia 3 (EV3 — 50%): Modelos AR, MA, ARMA, ARIMA. Obtención de la ecuación de pronósticos válida y confiable. [Evidencia 1: etapas 1,2,3 del modelamiento — 50%] [Evidencia 2: modelos SARIMA — 50%]" },
         ]
       },
       {
-        nombre: "Unidad II: Modelos Avanzados y Pronóstico",
+        nombre: "Unidad II: Modelos Avanzados — SARIMA, ARCH/GARCH y Redes Neuronales",
         semanas: "10 al 18",
-        logro: "Implementa modelos avanzados de pronóstico incluyendo modelos multivariados, GARCH y redes neuronales aplicadas a series temporales.",
+        duracion: "Del 1 de Junio al 31 de Julio del 2026 (Total 45 horas)",
+        horasVirt: "02",
+        avance: "100%",
+        logro: "Produce información de pronósticos mediante la metodología Box-Jenkins, redes neuronales y modelos heterocedásticos ARCH/GARCH para realidades en investigación.",
         semanas_list: [
-          { n: "Semana 10", t: "Métricas de evaluación de pronóstico: MAE, RMSE, MAPE y Theil U." },
-          { n: "Semana 11", t: "Modelos VAR: series de tiempo multivariadas y causalidad de Granger." },
-          { n: "Semana 12", t: "Modelos de volatilidad: ARCH y GARCH. Aplicaciones financieras." },
-          { n: "Semana 13", t: "Descomposición STL y modelos de regresión con efectos temporales." },
-          { n: "Semana 14", t: "Prophet de Meta (Facebook): series con múltiples estacionalidades y festivos." },
-          { n: "Semana 15", t: "Redes neuronales recurrentes (RNN, LSTM, GRU) para pronóstico temporal." },
-          { n: "Semana 16", t: "Intervalos de predicción y cuantificación de incertidumbre en pronósticos." },
-          { n: "Semana 17", t: "Proyecto integrador: pipeline completo de análisis y pronóstico con datos reales." },
-          { n: "Semana 18", t: "Presentación final, comparativa de modelos y reflexión del aprendizaje." },
+          { n: "Semanas 10–14", t: "Evidencia 4 (EV4 — 50%): Modelos estacionales SARMA y SARIMA. Series estacionarias o no estacionarias, estacionales o no estacionales. [Evaluación de modelos heterocedásticos — 50%]" },
+          { n: "Semanas 15–18", t: "Evidencia 5 (EV5 — 50%): Modelos ARCH y GARCH para series heterocedásticas. Modelos con variables exógenas y multivariados. Redes neuronales para series temporales. [Evaluación de modelos exógenos/multivariados — 50%]" },
         ]
       }
     ],
     evaluacion: [
-      { item: "Prácticas computacionales y portafolio en R/Python", pct: 25 },
-      { item: "Evaluación parcial — modelado ARIMA", pct: 25 },
-      { item: "Seguimiento semanal y participación activa", pct: 20 },
-      { item: "Proyecto final de pronóstico y sustentación", pct: 25 },
-      { item: "Autoevaluación y coevaluación", pct: 5 },
+      { item: "Evidencia 1: Aspectos básicos de ST de la realidad", pct: 10 },
+      { item: "Evidencia 2: Exploración de patrones y análisis clásico", pct: 15 },
+      { item: "Evidencia 3: Ecuación de pronósticos ARIMA válida", pct: 25 },
+      { item: "Evidencia 4: Modelos SARIMA / heterocedásticos", pct: 25 },
+      { item: "Evidencia 5: Modelos exógenos, multivariados y redes neuronales", pct: 25 },
     ],
+    formulaCalif: "PF = 50% (UPP1) + 50% (UPP2) · Cada UPP = 50% (EVI1) + 50% (EVI2)",
     metodologia: [
-      "Clases teóricas con derivación matemática de modelos.",
-      "Laboratorios computacionales en R y Python.",
-      "Análisis de casos reales (economía, clima, salud pública).",
-      "Revisión semanal de avances y retroalimentación.",
-      "Exposición y defensa de proyectos de pronóstico.",
+      "Exposición oral con soporte de diapositivas y recursos audiovisuales.",
+      "Demostraciones con software estadístico y herramientas de IA.",
+      "Aprendizaje Basado en Problemas (ABP): pronósticos con datos reales.",
+      "Estudio de casos de fenómenos de la realidad regional y nacional.",
+      "Simulaciones y resolución de problemas de series temporales.",
+      "Exposición, debate de casos y desarrollo progresivo de informes de pronósticos.",
     ],
     entregables: [
-      "Scripts documentados en R/Python por módulo.",
-      "Análisis exploratorio y diagnóstico de serie real.",
-      "Informe de modelado ARIMA con validación cruzada.",
-      "Comparativa de modelos clásicos vs modernos.",
-      "Proyecto final con pronóstico y reporte técnico.",
+      "EV1 (Semana 1): Tema de ST de la realidad — aspectos básicos.",
+      "EV2 (Semanas 2–5): Exploración de patrones y análisis clásico.",
+      "EV3 (Semanas 6–9): Ecuación de pronósticos ARIMA válida y confiable.",
+      "EV4 (Semanas 10–14): Pronósticos con modelos estacionales (SARIMA) y heterocedásticos.",
+      "EV5 (Semanas 15–18): Pronósticos con modelos multivariados y redes neuronales.",
     ],
     recursos: [
-      { name: "R Project", url: "https://www.r-project.org/" },
-      { name: "statsmodels (Python)", url: "https://www.statsmodels.org/" },
-      { name: "Prophet (Meta)", url: "https://facebook.github.io/prophet/" },
-      { name: "Kaggle Datasets", url: "https://www.kaggle.com/datasets" },
+      { name: "Machine Learning Mastery — ARIMA", url: "https://machinelearningmastery.com/arima-for-time-series-forecasting-with-python/" },
+      { name: "Analytics Vidhya — Auto-ARIMA", url: "https://www.analyticsvidhya.com/blog/2018/08/auto-arima-time-series-modeling-python-r/" },
+      { name: "ARCH/GARCH en Python", url: "https://machinelearningmastery.com/develop-arch-and-garch-models-for-time-series-forecasting-in-python/" },
     ],
     bibliografia: [
-      "Box, G. E. P., Jenkins, G. M., Reinsel, G. C. & Ljung, G. M. (2015). Time Series Analysis: Forecasting and Control (5th ed.). Wiley.",
-      "Hyndman, R. J. & Athanasopoulos, G. (2021). Forecasting: Principles and Practice (3rd ed.). OTexts. Disponible en: https://otexts.com/fpp3/",
-      "Shumway, R. H. & Stoffer, D. S. (2017). Time Series Analysis and Its Applications (4th ed.). Springer.",
-      "Hamilton, J. D. (1994). Time Series Analysis. Princeton University Press.",
-      "Chatfield, C. & Xing, H. (2019). The Analysis of Time Series: An Introduction with R. CRC Press.",
+      "Guerrero, V. M. (2014). Análisis estadístico y pronóstico de series de tiempo económicas. 3ra ed. Jit Press.",
+      "Hanke, J. E. & Wichern, D. W. (2006). Pronóstico en los negocios. 8va ed. Prentice Hall.",
+      "Box, G. E. P. et al. (2015). Time Series Analysis: Forecasting and Control. 5ta ed. Wiley.",
+      "Ramos, A. et al. (2016). Series de Tiempo: Software de análisis con Eviews. Editorial Altiplano. Puno.",
+      "Wooldridge, J. (2006). Introducción a la econometría. 2da ed. Paraninfo.",
+      "Gujarati, D. (2004). Econometría. 4ta ed. Mc. Graw Hill.",
     ]
   },
   {
@@ -952,84 +617,98 @@ const COURSES = [
     title: "Regresión Lineal y No Lineal",
     credits: 4,
     hp: 2, hs: 0, ht: 3, hv: 0,
+    horasLectivas: "03h teóricas, 02h prácticas — Total 05h",
+    horasNoLectivas: "1h 40min",
+    horasVirtuales: "00",
+    area: "Estudios específicos",
+    nivel: "INTERMEDIO",
+    modalidad: "Presencial",
+    duracion: "Del 30 de Marzo al 31 de Julio del 2026",
+    semestre: "2026-I",
+    curriculo: "2021-2025 V.2.0",
     prereq: "EST309 - Métodos de Optimización",
     color: "#C06B2A",
     colorLight: "#FBF3EE",
-    professor: "Prof. M. Sc. Área de Estadística e Inferencia",
+    professor: "Dr. Confesor Milán Vargas Valverde",
+    professorFull: "VARGAS VALVERDE CONFESOR MILAN — Nombrado, Asociado T.C. · Lic. en Estadística, M.Sc. en Estadística, Dr. en Estadística e Informática",
     contact: "estadistica@unap.edu.pe",
+    aula: "Pabellón Nuevo, Segundo Piso, Aula 202",
     sumilla: [
-      "El curso de Regresión Lineal y No Lineal corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Desarrolla competencias para modelar relaciones entre variables cuantitativas y cualitativas mediante técnicas estadísticas de regresión, fundamentales en la inferencia estadística, ciencia de datos y el aprendizaje automático supervisado.",
-      "El curso abarca el modelo de regresión lineal simple y múltiple desde su fundamentación matricial, la regresión no lineal intrínsecamente linealizable y propiamente no lineal, modelos de regresión logística, regresión de Poisson y modelos lineales generalizados (GLM).",
-      "Los estudiantes aplicarán los modelos en datos reales utilizando R y Python, evaluando supuestos, interpretando coeficientes, realizando inferencia y comparando el poder predictivo de diferentes especificaciones."
+      "El curso de Regresión Lineal y No Lineal corresponde al área curricular de Estudios específicos, es de naturaleza teórico-práctica, cuyo propósito es brindar metodologías estadísticas de carácter cuantitativo y cualitativo que permita estimar un modelo para explicar de manera apropiada el comportamiento de la variable de interés usando software estadístico.",
+      "Unidad I: Regresión Lineal Simple, Correlación lineal y Modelos curvilíneos. Unidad II: Modelos múltiples, Modelos aditivos generalizados (GAM) y Regresión Tobit: modelos lineales para datos censurados."
     ],
-    logro: "Al finalizar el curso, el estudiante especifica, estima, verifica supuestos e interpreta modelos de regresión lineal y no lineal, aplicándolos a datos reales para modelar fenómenos de interés en estadística aplicada y ciencia de datos.",
+    logro: "Usa las técnicas de regresión lineal y no lineal para encontrar modelos y realizar pronósticos en trabajos de investigación. Unidad I: Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo. Unidad II: Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.",
+    perfilEgresado: "CE5. Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica con el propósito de generar nuevos conocimientos en beneficio del país y la humanidad con responsabilidad y ética.",
     unidades: [
       {
-        nombre: "Unidad I: Regresión Lineal Simple y Múltiple",
-        semanas: "1 al 9",
-        logro: "Estima e interpreta modelos de regresión lineal mediante Mínimos Cuadrados Ordinarios, verifica supuestos y realiza inferencia estadística.",
+        nombre: "Unidad I: Modelos de Regresión Lineales",
+        semanas: "1 al 8",
+        duracion: "Del 30 de Marzo al 25 de Mayo del 2026 (Total 40 horas)",
+        horasVirt: "00",
+        avance: "50%",
+        logro: "Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.",
         semanas_list: [
-          { n: "Semana 1", t: "Introducción al modelado estadístico. Correlación y causalidad. Análisis bivariado." },
-          { n: "Semana 2", t: "Regresión lineal simple: estimación MCO, interpretación y bondad de ajuste R²." },
-          { n: "Semana 3", t: "Inferencia en regresión: prueba t, F, intervalos de confianza y predicción." },
-          { n: "Semana 4", t: "Regresión lineal múltiple: formulación matricial (β = (X'X)⁻¹X'Y)." },
-          { n: "Semana 5", t: "Selección de variables: stepwise, AIC/BIC, LASSO y Ridge." },
-          { n: "Semana 6", t: "Verificación de supuestos: normalidad, homocedasticidad, independencia y multicolinealidad." },
-          { n: "Semana 7", t: "Variables dummy y efectos de interacción en regresión múltiple." },
-          { n: "Semana 8", t: "Valores influyentes: leverage, distancia de Cook y DFFITS." },
-          { n: "Semana 9", t: "Evaluación parcial: análisis completo de regresión múltiple en dataset real." },
+          { n: "Semana 1", t: "Regresión, correlación. Betas, error de estimación. Pruebas de hipótesis, estimaciones puntuales e interválicas. Método de Mínimos Cuadrados. Método de Doolittle Abreviado." },
+          { n: "Semana 2", t: "Aplicación del método de Doolittle Abreviado y estimaciones con pruebas de hipótesis para correlaciones." },
+          { n: "Semana 3", t: "Estimación del modelo lineal simple: β₀ y β₁. Interpretación, gráfica, pruebas de hipótesis T y F. Asociación lineal simple." },
+          { n: "Semana 4", t: "Estimación del modelo cuadrático: reconoce las variables, calcula los betas, realiza pruebas de hipótesis." },
+          { n: "Semana 5", t: "Modelo cúbico: identifica y determina los betas, interpreta pruebas de hipótesis." },
+          { n: "Semana 6", t: "Modelo lineal múltiple con dos variables Xi, aplicando el método de Doolittle Abreviado." },
+          { n: "Semana 7", t: "Modelo lineal múltiple con tres y cuatro Xi. Método matricial y consecuencia lógica de Doolittle Abreviado. [Evidencia 1: Trabajos — 50%]" },
+          { n: "Semana 8", t: "Primer examen. [Evidencia 2: Examen escrito — 50%]" },
         ]
       },
       {
-        nombre: "Unidad II: Regresión No Lineal y Modelos Generalizados",
-        semanas: "10 al 18",
-        logro: "Aplica modelos de regresión no lineal, logística y modelos lineales generalizados a datos con respuestas no continuas o relaciones no lineales.",
+        nombre: "Unidad II: Modelos de Regresión No Lineales",
+        semanas: "9 al 17",
+        duracion: "Del 25 de Mayo al 27 de Julio del 2026 (Total 45 horas)",
+        horasVirt: "00",
+        avance: "100%",
+        logro: "Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.",
         semanas_list: [
-          { n: "Semana 10", t: "Regresión no lineal: linealización, mínimos cuadrados no lineales (MCNL) y Gauss-Newton." },
-          { n: "Semana 11", t: "Modelos de crecimiento: logístico, Gompertz, von Bertalanffy y exponencial." },
-          { n: "Semana 12", t: "Regresión logística binaria: odds ratio, curva ROC y área AUC." },
-          { n: "Semana 13", t: "Regresión logística multinomial y ordinal: interpretación de coeficientes." },
-          { n: "Semana 14", t: "Regresión de Poisson y modelos para datos de conteo. Inflación de ceros (ZIP)." },
-          { n: "Semana 15", t: "Modelos lineales generalizados (GLM): familia exponencial y función de enlace." },
-          { n: "Semana 16", t: "Regresión spline, polinomial y modelos aditivos generalizados (GAM)." },
-          { n: "Semana 17", t: "Validación cruzada y métricas de desempeño predictivo." },
-          { n: "Semana 18", t: "Presentación del proyecto final y cierre del curso." },
+          { n: "Semana 9", t: "Modelos curvilíneos: definiciones, métodos para estimar betas, interpretaciones, aplicaciones y pruebas de hipótesis." },
+          { n: "Semana 10", t: "Modelos compuesto y logarítmico: mínimos cuadrados, cálculo de betas, pruebas de hipótesis y gráficos." },
+          { n: "Semana 11", t: "Modelos de crecimiento y potencia: método de mínimos cuadrados." },
+          { n: "Semana 12", t: "Modelos exponencial y logístico: método de mínimos cuadrados." },
+          { n: "Semana 13", t: "Evaluación de práctica. Reforzamiento de la teoría y práctica." },
+          { n: "Semana 14", t: "Programación de los modelos estudiados. Creación de software propio." },
+          { n: "Semana 15", t: "Modelo Tobit: teoría y aplicaciones." },
+          { n: "Semana 16", t: "Otros modelos con programación. [Evidencia 3: Trabajos — 50%]" },
+          { n: "Semana 17", t: "Herramientas informáticas y evaluaciones finales. [Evidencia 4: Examen escrito — 50%]" },
         ]
       }
     ],
     evaluacion: [
-      { item: "Prácticas en R/Python y reportes de análisis", pct: 25 },
-      { item: "Evaluación parcial — regresión múltiple", pct: 25 },
-      { item: "Seguimiento de avances y participación", pct: 20 },
-      { item: "Proyecto final y sustentación oral", pct: 25 },
-      { item: "Autoevaluación y coevaluación", pct: 5 },
+      { item: "Evidencia 1: Trabajos prácticos Unidad I", pct: 25 },
+      { item: "Evidencia 2: Examen escrito Unidad I", pct: 25 },
+      { item: "Evidencia 3: Trabajos prácticos Unidad II", pct: 25 },
+      { item: "Evidencia 4: Examen escrito Unidad II", pct: 25 },
     ],
+    formulaCalif: "PF = 50% (UPP1) + 50% (UPP2) · Cada UPP = 50% (EVI1) + 50% (EVI2)",
     metodologia: [
-      "Derivación matemática y fundamentos matriciales.",
-      "Laboratorios aplicados en R (lm, glm) y Python (statsmodels, sklearn).",
-      "Análisis de casos reales con interpretación contextual.",
-      "Revisión crítica de supuestos y diagnóstico del modelo.",
-      "Discusión de artículos científicos con modelos de regresión.",
+      "Videoconferencias, video fórum, chat en línea y foros de análisis y discusión.",
+      "Exposición, debate y solución de casos.",
+      "Investigación descriptiva con procesamiento, pronósticos y selección del óptimo modelo de regresión.",
+      "Aplicación interdisciplinaria en otras escuelas profesionales.",
+      "Uso del aula virtual (Classroom o Moodle UNAP) para temas complementarios.",
     ],
     entregables: [
-      "Scripts documentados por módulo temático.",
-      "Análisis de regresión lineal múltiple con informe completo.",
-      "Modelo de regresión logística con validación y curva ROC.",
-      "Proyecto integrador de modelado estadístico.",
-      "Reporte técnico y presentación final.",
+      "Solución de casos prácticos Unidad I (Semanas 1–8).",
+      "Prácticas calificadas y exposiciones Unidad I.",
+      "Estudio de casos y exposiciones Unidad II (Semanas 9–17).",
+      "Creación de software propio para los modelos (Semana 14).",
     ],
     recursos: [
-      { name: "R Project (lm, glm)", url: "https://www.r-project.org/" },
-      { name: "statsmodels (Python)", url: "https://www.statsmodels.org/" },
-      { name: "scikit-learn", url: "https://scikit-learn.org/" },
-      { name: "Kaggle Datasets", url: "https://www.kaggle.com/datasets" },
+      { name: "Regresión Tobit", url: "https://cienciadedatos.net/documentos/40_tobit_regression_modelos_lineales_para_datos_censurados" },
+      { name: "Regresión Lineal Múltiple", url: "https://www.bioestadistica.uma.es/apuntesMaster/regresi%C3%B3n-lineal-m%C3%BAltiple.html" },
     ],
     bibliografia: [
-      "Montgomery, D. C., Peck, E. A. & Vining, G. G. (2012). Introduction to Linear Regression Analysis (5th ed.). Wiley.",
-      "Kutner, M., Nachtsheim, C., Neter, J. & Li, W. (2004). Applied Linear Statistical Models (5th ed.). McGraw-Hill.",
-      "Hosmer, D. W. & Lemeshow, S. (2013). Applied Logistic Regression (3rd ed.). Wiley.",
-      "Wood, S. N. (2017). Generalized Additive Models: An Introduction with R (2nd ed.). CRC Press.",
-      "James, G., Witten, D., Hastie, T. & Tibshirani, R. (2021). An Introduction to Statistical Learning (2nd ed.). Springer.",
+      "Ostle, B. (1979). Estadística Aplicada. Editorial LIMUSA. México.",
+      "Gujarati, D. & Porter, D. (2010). Econometría. Mc Graw Hill. México.",
+      "D'Ancona, A. (2004). Análisis multivariable. Editorial SINTESIS. Madrid.",
+      "Córdova, M. (2009). Estadística Descriptiva e Inferencial. Editorial MOSHERA. Lima.",
+      "Pérez, C. (2008). Econometría Avanzada: Técnicas y herramientas. Pearson. España.",
+      "Azañero de Aguirre y Salas Pilco: Diseños estadísticos para la investigación. Puno 2020.",
     ]
   },
   {
@@ -1037,83 +716,100 @@ const COURSES = [
     title: "Modelos Lineales",
     credits: 5,
     hp: 2, hs: 0, ht: 4, hv: 0,
+    horasLectivas: "04h teóricas, 02h prácticas — Total 06h",
+    horasNoLectivas: "2h 00min",
+    horasVirtuales: "02 por unidad",
+    area: "Estudios de especialidad",
+    nivel: "AVANZADO",
+    modalidad: "Presencial",
+    duracion: "Del 30 de Marzo al 31 de Julio del 2026",
+    semestre: "2026-I",
+    curriculo: "2021-2025 V.2.0",
     prereq: "EST307 - Modelos Discretos",
     color: "#D14B3D",
     colorLight: "#FBF0EF",
-    professor: "Prof. Dr. Área de Estadística Matemática",
+    professor: "Dr. Santos Octavio Morillos Valderrama",
+    professorFull: "MORILLOS VALDERRAMA SANTOS OCTAVIO — Nombrado, Principal D.E. · Doctor en Estadística e Informática",
     contact: "estadistica@unap.edu.pe",
+    aula: "Aula 205, Pabellón Antiguo",
     sumilla: [
-      "El curso de Modelos Lineales corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica con alta carga matemática. Constituye el fundamento teórico unificador de los métodos estadísticos paramétricos clásicos, proporcionando al estudiante las herramientas algebraicas y probabilísticas para comprender y extender los modelos lineales en sus diversas formas.",
-      "El curso desarrolla la teoría del modelo lineal general desde su formulación en álgebra matricial, las propiedades del estimador de mínimos cuadrados, el análisis de varianza como caso particular, los contrastes de hipótesis lineales, el análisis de covarianza y los modelos de efectos fijos, aleatorios y mixtos.",
-      "Los estudiantes establecerán conexiones profundas entre regresión, ANOVA, ANCOVA y los modelos lineales generalizados, desarrollando la capacidad de especificar modelos adecuados y derivar sus propiedades teóricas con rigor matemático."
+      "El curso de Modelos Lineales pertenece al área curricular de estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito contribuir en forma significativa en la solución de problemas de la vida real, dando lugar a la formalización y rápido perfeccionamiento de los modelos matemáticos, debido esencialmente al avance de la tecnología y la posibilidad de usar la computación en la comprobación de los modelos.",
+      "La asignatura está dividida en dos unidades didácticas: Unidad I — Distribución de formas cuadráticas y Modelos de rango completo. Unidad II — Modelos de correlación y Modelo de rango no completo."
     ],
-    logro: "Al finalizar el curso, el estudiante especifica y analiza modelos lineales en su formulación matricial, derivando propiedades estadísticas, realizando inferencia mediante contrastes de hipótesis lineales y conectando la teoría con aplicaciones en regresión, ANOVA y modelos mixtos.",
+    logro: "Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.",
+    perfilEgresado: "Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica con el propósito de generar nuevos conocimientos en beneficio del país y la humanidad con responsabilidad y ética.",
     unidades: [
       {
-        nombre: "Unidad I: Álgebra Matricial y Modelo Lineal General",
+        nombre: "Unidad I: Formas Cuadráticas y Modelos de Rango Completo",
         semanas: "1 al 9",
-        logro: "Domina la formulación matricial del modelo lineal, las propiedades del estimador MCO y la inferencia estadística mediante contrastes lineales.",
+        duracion: "Del 30 de Marzo al 1 de Junio del 2026 (Total 54 horas)",
+        horasVirt: "04",
+        avance: "50%",
+        logro: "Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.",
         semanas_list: [
-          { n: "Semana 1", t: "Repaso de álgebra lineal: espacios vectoriales, proyecciones ortogonales y eigenvalores." },
-          { n: "Semana 2", t: "Distribuciones matriciales: distribución normal multivariada, Wishart y sus propiedades." },
-          { n: "Semana 3", t: "El modelo lineal general: Y = Xβ + ε. Supuestos de Gauss-Markov." },
-          { n: "Semana 4", t: "Estimador MCO: propiedades MELI, existencia y unicidad. Caso no identificado." },
-          { n: "Semana 5", t: "Estimador de máxima verosimilitud y sus relaciones con MCO bajo normalidad." },
-          { n: "Semana 6", t: "Inferencia: distribuciones de β̂, pruebas t, F y contrastes lineales Cβ = d." },
-          { n: "Semana 7", t: "Regiones de confianza elipsoidales y bandas de confianza simultáneas." },
-          { n: "Semana 8", t: "Estimación con restricciones lineales: multiplicadores de Lagrange y MCO restringidos." },
-          { n: "Semana 9", t: "Evaluación parcial: derivaciones teóricas y aplicación computacional en R." },
+          { n: "Semana 1", t: "Introducción a las formas cuadráticas. Identificación de distribuciones." },
+          { n: "Semana 2", t: "Momentos, F central y no central. Otras distribuciones no centrales." },
+          { n: "Semana 3", t: "Distribuciones e independencia de formas cuadráticas." },
+          { n: "Semana 4", t: "Modelos de rango completo: estimación, k variables X. Métodos de estimación." },
+          { n: "Semana 5", t: "Partición de la suma total de cuadrados. Correlación múltiple. Propiedades distribucionales." },
+          { n: "Semana 6", t: "Análisis de varianza para modelos de regresión. Intervalos de confianza." },
+          { n: "Semana 7", t: "Prueba de hipótesis lineal. Cuatro hipótesis comunes. Modelos reducidos." },
+          { n: "Semana 8", t: "Regresión polinomial. Estimación de la respuesta media. Intervalos de confianza. Prueba de la Función Respuesta. [Evidencia 1: Trabajos — 50%]" },
+          { n: "Semana 9", t: "Polinomios ortogonales. Selección del mejor conjunto de variables independientes. [Evidencia 2: Examen escrito — 50%]" },
         ]
       },
       {
-        nombre: "Unidad II: ANOVA, ANCOVA y Modelos Mixtos",
+        nombre: "Unidad II: Correlación, Rango No Completo y Modelos ANOVA",
         semanas: "10 al 18",
-        logro: "Especifica y analiza modelos ANOVA de una y múltiples vías, ANCOVA y modelos de efectos mixtos como extensiones del modelo lineal general.",
+        duracion: "Del 1 de Junio al 31 de Julio del 2026 (Total 54 horas)",
+        horasVirt: "04",
+        avance: "100%",
+        logro: "Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple. Distingue las diferencias entre los modelos de rango completo y no completo.",
         semanas_list: [
-          { n: "Semana 10", t: "ANOVA de una vía como modelo lineal: efectos de tratamiento y sumas de cuadrados." },
-          { n: "Semana 11", t: "ANOVA de dos vías con y sin interacción: descomposición de la varianza total." },
-          { n: "Semana 12", t: "Comparaciones múltiples: Tukey, Bonferroni, Scheffé y tasa de falsos descubrimientos (FDR)." },
-          { n: "Semana 13", t: "Diseños factoriales completos y fraccionados. Efectos principales e interacciones." },
-          { n: "Semana 14", t: "Análisis de covarianza (ANCOVA): combinación de factores categóricos y covariables continuas." },
-          { n: "Semana 15", t: "Modelos de efectos aleatorios: componentes de varianza y estimación REML." },
-          { n: "Semana 16", t: "Modelos lineales mixtos (LMM): estimación, predicción de efectos aleatorios (BLUP)." },
-          { n: "Semana 17", t: "Datos longitudinales y medidas repetidas como modelo lineal mixto." },
-          { n: "Semana 18", t: "Proyecto final: especificación y análisis de modelo lineal complejo. Presentación." },
+          { n: "Semana 10", t: "Modelos de correlación: pruebas de hipótesis, intervalos de confianza. Correlación parcial y múltiple." },
+          { n: "Semana 11", t: "Modelos de análisis de varianza. Tipos de clasificaciones. Efectos principales e interactivos. Clasificaciones cruzadas y anidadas. Matriz Inversa Generalizada." },
+          { n: "Semana 12", t: "Modelos de clasificación a un criterio. Propiedades distribucionales. Pruebas de hipótesis (rango no completo)." },
+          { n: "Semana 13", t: "Funciones estimables. Intervalos de confianza. Prueba de estimabilidad." },
+          { n: "Semana 14", t: "Hipótesis Lineal General. Análisis de varianza. Contrastes independientes y ortogonales." },
+          { n: "Semana 15", t: "Modelo de clasificación a un criterio. Funciones estimables. Intervalos de confianza." },
+          { n: "Semana 16", t: "Modelo de clasificación anidada a dos criterios. Análisis de varianza. Funciones estimables. Pruebas de hipótesis." },
+          { n: "Semana 17", t: "Clasificación cruzada a dos criterios sin interacción. Análisis de varianza. Funciones estimables. [Evidencia 3: Trabajos — 50%]" },
+          { n: "Semana 18", t: "Modelo balanceado, modelos fijos, aleatorios y mixtos. Análisis de varianza. [Evidencia 4: Examen escrito — 50%]" },
         ]
       }
     ],
     evaluacion: [
-      { item: "Tareas teóricas y demostraciones matemáticas", pct: 25 },
-      { item: "Evaluación parcial — modelo lineal general", pct: 25 },
-      { item: "Participación en clases y avances", pct: 20 },
-      { item: "Proyecto final y sustentación", pct: 25 },
-      { item: "Autoevaluación y coevaluación", pct: 5 },
+      { item: "Evidencia 1: Trabajos prácticos Unidad I", pct: 25 },
+      { item: "Evidencia 2: Examen escrito Unidad I", pct: 25 },
+      { item: "Evidencia 3: Trabajos prácticos Unidad II", pct: 25 },
+      { item: "Evidencia 4: Examen escrito Unidad II", pct: 25 },
     ],
+    formulaCalif: "PF = 50% (UPP1) + 50% (UPP2) · Cada UPP = 50% (EVI1) + 50% (EVI2)",
     metodologia: [
-      "Clases magistrales con derivaciones matemáticas completas.",
-      "Resolución de problemas teóricos y demostraciones formales.",
-      "Implementación computacional en R (lm, lme4, nlme).",
-      "Análisis crítico de artículos con modelos lineales.",
-      "Exposición de proyectos con fundamento teórico riguroso.",
+      "Sesiones de clase: la mayor parte de los temas expuestos por el docente; algunos temas expuestos por los estudiantes.",
+      "Dinámica de grupos para exposición de ejercicios y problemas.",
+      "Asignación de problemas y ejercicios para presentación por los estudiantes.",
+      "Trabajo de investigación relacionado con el curso al finalizar el semestre.",
+      "Uso de aulas virtuales: Classroom, Webex o Meet.",
     ],
     entregables: [
-      "Series de problemas teóricos por unidad.",
-      "Derivaciones formales de propiedades del estimador MCO.",
-      "Análisis ANOVA y ANCOVA documentado en R.",
-      "Modelo lineal mixto aplicado a datos longitudinales reales.",
-      "Proyecto final con reporte matemático-estadístico completo.",
+      "Trabajos prácticos por unidad (EVI 1 y EVI 3).",
+      "Exámenes escritos por unidad (EVI 2 y EVI 4).",
+      "Trabajo de investigación final relacionado con el curso.",
+      "Aplicación del modelo de regresión lineal de rango completo y no completo a casos de estudio.",
     ],
     recursos: [
-      { name: "R Project (lme4, nlme)", url: "https://www.r-project.org/" },
-      { name: "CRAN Task View: Mixed Models", url: "https://cran.r-project.org/web/views/MixedModels.html" },
-      { name: "Matrix Algebra (IPSUR)", url: "https://ipsur.org/" },
+      { name: "Regresión — UNEX", url: "https://mascvuex.unex.es/moodle/pluginfile.php/file.pdf" },
+      { name: "CRAN Mixed Models", url: "https://cran.r-project.org/web/views/MixedModels.html" },
     ],
     bibliografia: [
-      "Searle, S. R., Casella, G. & McCulloch, C. E. (2006). Variance Components. Wiley.",
-      "Rencher, A. C. & Schaalje, G. B. (2008). Linear Models in Statistics (2nd ed.). Wiley.",
-      "McCulloch, C. E. & Searle, S. R. (2001). Generalized, Linear, and Mixed Models. Wiley.",
-      "Faraway, J. J. (2016). Extending the Linear Model with R (2nd ed.). CRC Press.",
-      "Pinheiro, J. C. & Bates, D. M. (2000). Mixed-Effects Models in S and S-PLUS. Springer.",
+      "Graybill, F. (1961). An Introduction To Linear Statistical Models, Vol I. McGraw-Hill.",
+      "Searle, S. & Gruber, M. (2017). Linear Models, second edition. John Wiley. New Jersey.",
+      "Fahrmeir, L., Kneib, T., Lang, S. & Marx, B. (2013). Regression. Springer. New York.",
+      "Montgomery, D., Peck, E. & Vining, G. (2006). Introducción al Análisis de Regresión Lineal, 3ra ed. Continental.",
+      "Hair, J., Anderson, R., Tatham, R. & Black, W. (1999). Análisis Multivariante, 5ta ed. Prentice Hall.",
+      "Rencher, A. & Schaalje, B. (2008). Linear Models in Statistics, 2nd ed. John Wiley.",
+      "Neter, J., Wasserman, W. & Kutner, M. (1983). Applied Linear Regression Models. Richard Irwin.",
     ]
   }
 ];
@@ -1122,8 +818,8 @@ let currentCourseIndex = null;
 
 function renderCourses() {
   const grid = document.getElementById('courses-grid');
+  const maxCredits = 5;
   COURSES.forEach((c, i) => {
-    const maxCredits = 5;
     const fillPct = (c.credits / maxCredits * 100).toFixed(0);
     grid.innerHTML += `
       <div class="course-card">
@@ -1134,8 +830,9 @@ function renderCourses() {
           <div class="card-meta">
             <span class="meta-tag">📚 ${c.credits} créditos</span>
             <span class="meta-tag">🕐 HP:${c.hp} HT:${c.ht}</span>
+            <span class="meta-tag">📊 Nivel: ${c.nivel}</span>
           </div>
-          <p class="card-credits-label">${c.credits} créditos · ${fillPct}% carga relativa</p>
+          <p class="card-credits-label">${c.credits} créditos · ${c.horasLectivas}</p>
           <div class="card-credits-bar">
             <div class="card-credits-fill" style="width:${fillPct}%; background:${c.color}"></div>
           </div>
@@ -1160,18 +857,18 @@ function renderCourses() {
 function openModal(i) {
   currentCourseIndex = i;
   const c = COURSES[i];
-  document.getElementById('modal-eyebrow').textContent = `${c.code} · Ciclo VI · FIEI UNAP`;
+  document.getElementById('modal-eyebrow').textContent = `${c.code} · Ciclo VI · FIEI UNAP · 2026-I`;
   document.getElementById('modal-title').textContent = c.title;
   document.getElementById('modal-header').style.background = `linear-gradient(135deg, ${c.color} 0%, ${c.color}CC 100%)`;
-  document.getElementById('modal-footer-left').textContent = `${c.professor}`;
+  document.getElementById('modal-footer-left').textContent = c.professor;
   document.getElementById('modal-chips').innerHTML = `
     <span class="chip">📚 ${c.credits} créditos</span>
     <span class="chip">HP: ${c.hp} · HT: ${c.ht}</span>
+    <span class="chip">Nivel: ${c.nivel}</span>
     <span class="chip">Prereq: ${c.prereq.split(' - ')[0]}</span>
   `;
-
-  // Navigation links
   document.getElementById('modal-nav').innerHTML = `
+    <a href="#ms-info">Info General</a>
     <a href="#ms-sumilla">Sumilla</a>
     <a href="#ms-logro">Logro</a>
     <a href="#ms-contenido">Contenido</a>
@@ -1185,24 +882,47 @@ function openModal(i) {
 
   let html = '';
 
-  // Sumilla
+  // INFO GENERAL
+  html += `<div class="syllabus-section" id="ms-info">
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">ℹ️</span> Información General</h3>
+    <div class="info-box">
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">Código</span><span class="info-val">${c.code}</span></div>
+        <div class="info-row"><span class="info-label">Área</span><span class="info-val">${c.area}</span></div>
+        <div class="info-row"><span class="info-label">Créditos</span><span class="info-val">${c.credits}</span></div>
+        <div class="info-row"><span class="info-label">Nivel</span><span class="info-val">${c.nivel}</span></div>
+        <div class="info-row"><span class="info-label">Horas lectivas</span><span class="info-val">${c.horasLectivas}</span></div>
+        <div class="info-row"><span class="info-label">Horas no lectivas</span><span class="info-val">${c.horasNoLectivas}</span></div>
+        <div class="info-row"><span class="info-label">Modalidad</span><span class="info-val">${c.modalidad}</span></div>
+        <div class="info-row"><span class="info-label">Semestre</span><span class="info-val">${c.semestre}</span></div>
+        <div class="info-row"><span class="info-label">Duración</span><span class="info-val">${c.duracion}</span></div>
+        <div class="info-row"><span class="info-label">Aula</span><span class="info-val">${c.aula}</span></div>
+        <div class="info-row"><span class="info-label">Prerrequisito</span><span class="info-val">${c.prereq}</span></div>
+        <div class="info-row"><span class="info-label">Currículo</span><span class="info-val">${c.curriculo}</span></div>
+      </div>
+    </div>
+  </div>`;
+
+  // SUMILLA
   html += `<div class="syllabus-section" id="ms-sumilla">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">📋</span> Sumilla</h3>
     ${c.sumilla.map(p => `<p class="syl-text" style="margin-bottom:10px">${p}</p>`).join('')}
   </div>`;
 
-  // Logro
+  // LOGRO
   html += `<div class="syllabus-section" id="ms-logro">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">🎯</span> Logro del Curso</h3>
     <p class="syl-text">${c.logro}</p>
+    ${c.perfilEgresado ? `<p class="syl-text" style="margin-top:10px;font-size:13px;color:#6b7280;font-style:italic"><strong>Perfil del egresado:</strong> ${c.perfilEgresado}</p>` : ''}
   </div>`;
 
-  // Unidades
+  // UNIDADES
   html += `<div class="syllabus-section" id="ms-contenido">`;
   c.unidades.forEach(u => {
     html += `
       <h3 class="syl-title" style="margin-top:16px"><span class="icon" style="background:${c.color}">📅</span> ${u.nombre}</h3>
-      <p class="syl-text" style="margin-bottom:10px;font-style:italic;color:#555"><b>Semanas ${u.semanas}</b> · Logro: ${u.logro}</p>
+      <p class="syl-text" style="margin-bottom:4px"><strong>Duración:</strong> ${u.duracion}</p>
+      <p class="syl-text" style="margin-bottom:10px;font-style:italic;color:#555"><strong>Logro de unidad:</strong> ${u.logro}</p>
       <div class="weeks-grid" style="margin-bottom:18px">
         ${u.semanas_list.map(s => `
           <div class="week-row">
@@ -1215,17 +935,17 @@ function openModal(i) {
   });
   html += `</div>`;
 
-  // Metodología
+  // METODOLOGÍA
   html += `<div class="syllabus-section" id="ms-metodologia">
-    <h3 class="syl-title"><span class="icon" style="background:${c.color}">⚙️</span> Metodología</h3>
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">⚙️</span> Estrategias Metodológicas</h3>
     <ul class="syl-list">
       ${c.metodologia.map(m => `<li>${m}</li>`).join('')}
     </ul>
   </div>`;
 
-  // Evaluación
+  // EVALUACIÓN
   html += `<div class="syllabus-section" id="ms-evaluacion">
-    <h3 class="syl-title"><span class="icon" style="background:${c.color}">📊</span> Evaluación</h3>
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">📊</span> Evaluación del Aprendizaje</h3>
     <div class="eval-grid">
       ${c.evaluacion.map(e => `
         <span class="eval-item">${e.item}</span>
@@ -1235,25 +955,26 @@ function openModal(i) {
         </div>
       `).join('')}
     </div>
+    ${c.formulaCalif ? `<p style="font-size:12px;color:#6b7280;margin-top:12px;font-family:'JetBrains Mono',monospace;background:#f8fafc;padding:8px 12px;border-radius:6px">${c.formulaCalif}</p>` : ''}
   </div>`;
 
-  // Entregables
+  // ENTREGABLES
   html += `<div class="syllabus-section" id="ms-entregables">
-    <h3 class="syl-title"><span class="icon" style="background:${c.color}">📦</span> Entregables</h3>
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">📦</span> Evidencias y Entregables</h3>
     <ul class="syl-list">
       ${c.entregables.map(e => `<li>${e}</li>`).join('')}
     </ul>
   </div>`;
 
-  // Recursos
+  // RECURSOS
   html += `<div class="syllabus-section" id="ms-recursos">
-    <h3 class="syl-title"><span class="icon" style="background:${c.color}">🔗</span> Recursos</h3>
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">🔗</span> Recursos y Herramientas</h3>
     <div class="resources-grid">
       ${c.recursos.map(r => `<a class="resource-link" href="${r.url}" target="_blank" rel="noopener">🔗 ${r.name}</a>`).join('')}
     </div>
   </div>`;
 
-  // Bibliografía
+  // BIBLIOGRAFÍA
   html += `<div class="syllabus-section" id="ms-bibliografia">
     <h3 class="syl-title"><span class="icon" style="background:${c.color}">📖</span> Bibliografía</h3>
     <ul class="bib-list">
@@ -1261,14 +982,16 @@ function openModal(i) {
     </ul>
   </div>`;
 
-  // Contacto
+  // CONTACTO
   html += `<div class="syllabus-section" id="ms-contacto">
-    <h3 class="syl-title"><span class="icon" style="background:${c.color}">✉️</span> Contacto</h3>
+    <h3 class="syl-title"><span class="icon" style="background:${c.color}">✉️</span> Docente y Contacto</h3>
     <div class="contact-box">
       <span style="font-size:22px">👤</span>
       <div>
-        <div style="font-weight:600; margin-bottom:2px">${c.professor}</div>
-        <div style="font-size:12px; color:#6B7280"><a href="mailto:${c.contact}" style="color:${c.color}; text-decoration:none">${c.contact}</a></div>
+        <div style="font-weight:600; margin-bottom:4px">${c.professorFull}</div>
+        <div style="font-size:12px; color:#6B7280">Aula: ${c.aula}</div>
+        <div style="font-size:12px; color:#6B7280; margin-top:2px"><a href="mailto:${c.contact}" style="color:${c.color}; text-decoration:none">${c.contact}</a></div>
+        <div style="font-size:12px; color:#6B7280; margin-top:2px">Facultad de Ingeniería Estadística e Informática · UNAP · Puno</div>
       </div>
     </div>
   </div>`;
@@ -1303,150 +1026,54 @@ function generateSyllabusHTML(c) {
   const unidadesHTML = c.unidades.map(u => `
 <div class="pub">
 <h3>${u.nombre}</h3>
-<p><strong>Duración:</strong> Semanas ${u.semanas}</p>
+<p><strong>Duración:</strong> ${u.duracion}</p>
 <p><strong>Logro de unidad:</strong> ${u.logro}</p>
 <ul>
 ${u.semanas_list.map(s => `  <li><strong>${s.n}:</strong> ${s.t}</li>`).join('\n')}
 </ul>
 </div>`).join('\n');
 
-  const evalHTML = c.evaluacion.map(e => `  <li><strong>${e.item}:</strong> ${e.pct}%</li>`).join('\n');
+  const evalHTML = c.evaluacion.map(e => `<div class="eval-item"><span>${e.item}</span><span class="eval-pct">${e.pct}%</span></div>`).join('\n');
   const entregablesHTML = c.entregables.map(e => `  <li>${e}</li>`).join('\n');
   const metodHTML = c.metodologia.map(m => `  <li>${m}</li>`).join('\n');
   const recursosHTML = c.recursos.map(r => `  <li><a href="${r.url}" target="_blank">${r.name}</a></li>`).join('\n');
   const bibHTML = c.bibliografia.map(b => `  <li>${b}</li>`).join('\n');
-  const sumillaHTML = c.sumilla.map(p => `<p style="text-align:justify">${p}</p>`).join('\n');
+  const sumillaHTML = c.sumilla.map(p => `<p style="text-align:justify;margin-bottom:10px">${p}</p>`).join('\n');
 
   return `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="${c.title.toLowerCase()}, FIEI, UNAP, estadística, informática, sílabo"/>
-<meta name="description" content="Sílabo oficial del curso ${c.title} - Ingeniería Estadística e Informática - UNAP - Ciclo VI 2026"/>
+<meta name="description" content="Sílabo oficial ${c.title} - FIEI UNAP - Ciclo VI 2026-I"/>
 <title>${c.code} - ${c.title} - FIEI UNAP</title>
 <style>
-  body {
-    font-family: 'Source Sans Pro', Arial, sans-serif;
-    background-color: #060913;
-    margin: 0;
-    padding: 0;
-    color: #222;
-    line-height: 1.7;
-  }
-  .wrapper {
-    padding: 25px;
-  }
-  .content {
-    width: 800px;
-    max-width: 100%;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 30px 40px;
-    box-sizing: border-box;
-  }
-  .header-band {
-    background: ${c.color};
-    color: #fff;
-    padding: 28px 40px 22px;
-    margin: -30px -40px 28px -40px;
-  }
-  .course-code {
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0.85;
-    margin-bottom: 6px;
-  }
-  .course-title {
-    font-size: 36px;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    line-height: 1.15;
-  }
-  .course-meta {
-    font-size: 14px;
-    opacity: 0.9;
-    line-height: 1.8;
-  }
-  nav {
-    background: #f4f6f9;
-    border-left: 4px solid ${c.color};
-    padding: 12px 16px;
-    margin-bottom: 28px;
-    border-radius: 0 6px 6px 0;
-    font-size: 13px;
-  }
-  nav a {
-    color: ${c.color};
-    text-decoration: none;
-    margin-right: 10px;
-    font-weight: 600;
-  }
+  body { font-family: Arial, sans-serif; background: #060913; margin: 0; padding: 0; color: #222; line-height: 1.7; }
+  .wrapper { padding: 25px; }
+  .content { width: 800px; max-width: 100%; margin: 0 auto; background: #fff; padding: 30px 40px; box-sizing: border-box; }
+  .header-band { background: ${c.color}; color: #fff; padding: 28px 40px 22px; margin: -30px -40px 28px -40px; }
+  .course-code { font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.85; margin-bottom: 6px; }
+  .course-title { font-size: 32px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.15; }
+  .course-meta { font-size: 13px; opacity: 0.9; line-height: 1.9; }
+  nav { background: #f4f6f9; border-left: 4px solid ${c.color}; padding: 12px 16px; margin-bottom: 28px; border-radius: 0 6px 6px 0; font-size: 13px; }
+  nav a { color: ${c.color}; text-decoration: none; margin-right: 10px; font-weight: 600; }
   nav a:hover { text-decoration: underline; }
-  h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: ${c.color};
-    border-bottom: 2px solid ${c.color};
-    padding-bottom: 6px;
-    margin: 32px 0 12px 0;
-  }
-  h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1a2b45;
-    margin: 18px 0 8px 0;
-  }
+  h2 { font-size: 20px; font-weight: 700; color: ${c.color}; border-bottom: 2px solid ${c.color}; padding-bottom: 6px; margin: 32px 0 12px 0; }
+  h3 { font-size: 15px; font-weight: 700; color: #1a2b45; margin: 18px 0 8px 0; }
   p { margin-bottom: 10px; font-size: 14px; }
   ul { padding-left: 22px; margin: 8px 0 14px 0; }
   ul li { font-size: 14px; margin-bottom: 5px; }
-  .pub {
-    background: #f8fafc;
-    border: 1px solid #dde3ed;
-    border-radius: 8px;
-    padding: 18px 22px;
-    margin-bottom: 16px;
-  }
-  .pub h3 {
-    color: ${c.color};
-    margin-top: 0;
-    font-size: 15px;
-  }
+  .pub { background: #f8fafc; border: 1px solid #dde3ed; border-radius: 8px; padding: 18px 22px; margin-bottom: 16px; }
+  .pub h3 { color: ${c.color}; margin-top: 0; }
   hr { border: none; border-top: 1px solid #dde3ed; margin: 24px 0; }
-  .footer-bar {
-    background: #060913;
-    color: #8A9AB8;
-    text-align: center;
-    padding: 18px;
-    font-size: 12px;
-    margin-top: 24px;
-  }
+  .footer-bar { background: #060913; color: #8A9AB8; text-align: center; padding: 18px; font-size: 12px; margin-top: 24px; }
   .footer-bar a { color: ${c.color}; }
-  .contact-block {
-    background: #f4f6f9;
-    border-left: 4px solid ${c.color};
-    padding: 14px 18px;
-    border-radius: 0 8px 8px 0;
-    font-size: 14px;
-  }
-  .eval-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 7px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-  }
-  .eval-pct {
-    font-weight: 700;
-    color: ${c.color};
-    white-space: nowrap;
-    margin-left: 16px;
-  }
-  @media (max-width: 860px) {
-    .content { width: 100%; padding: 20px 18px; }
-    .header-band { margin: -20px -18px 22px -18px; padding: 22px 18px 18px; }
-    .course-title { font-size: 26px; }
-  }
+  .contact-block { background: #f4f6f9; border-left: 4px solid ${c.color}; padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: 14px; }
+  .eval-item { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .eval-pct { font-weight: 700; color: ${c.color}; white-space: nowrap; margin-left: 16px; }
+  .info-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px; }
+  .info-table td { padding: 5px 10px; border: 1px solid #dde3ed; }
+  .info-table td:first-child { font-weight: 600; background: #f4f6f9; width: 35%; }
+  @media (max-width: 860px) { .content { width: 100%; padding: 20px 18px; } .header-band { margin: -20px -18px 22px -18px; padding: 22px 18px 18px; } .course-title { font-size: 24px; } }
 </style>
 </head>
 <body>
@@ -1454,18 +1081,22 @@ ${u.semanas_list.map(s => `  <li><strong>${s.n}:</strong> ${s.t}</li>`).join('\n
 <div class="content">
 
   <div class="header-band">
-    <p class="course-code">${c.code} · Ciclo VI · FIEI UNAP · 2026</p>
+    <p class="course-code">${c.code} · Ciclo VI · FIEI UNAP · Semestre ${c.semestre}</p>
     <h1 class="course-title">${c.title}</h1>
     <p class="course-meta">
       Ingeniería Estadística e Informática · Facultad de Ingeniería Estadística e Informática<br>
       Universidad Nacional del Altiplano — Puno<br><br>
-      Créditos: ${c.credits} &nbsp;|&nbsp; HP: ${c.hp} &nbsp;|&nbsp; HT: ${c.ht} &nbsp;|&nbsp; Total: ${c.hp + c.ht} horas semanales<br>
+      Créditos: ${c.credits} &nbsp;|&nbsp; ${c.horasLectivas}<br>
+      Horas no lectivas: ${c.horasNoLectivas} &nbsp;|&nbsp; Horas virtuales/unidad: ${c.horasVirtuales}<br>
+      Área: ${c.area} &nbsp;|&nbsp; Nivel: ${c.nivel} &nbsp;|&nbsp; Modalidad: ${c.modalidad}<br>
       Prerrequisito: ${c.prereq}<br>
-      ${c.professor}
+      Duración: ${c.duracion}<br>
+      Docente: ${c.professorFull}
     </p>
   </div>
 
   <nav>
+    <a href="#info">Info General</a>
     <a href="#sumilla">Sumilla</a>
     <a href="#logro">Logro</a>
     <a href="#contenido">Contenido</a>
@@ -1477,24 +1108,43 @@ ${u.semanas_list.map(s => `  <li><strong>${s.n}:</strong> ${s.t}</li>`).join('\n
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <h2 id="info">I. Información General</h2>
+  <table class="info-table">
+    <tr><td>Código</td><td>${c.code}</td></tr>
+    <tr><td>Créditos</td><td>${c.credits}</td></tr>
+    <tr><td>Horas lectivas</td><td>${c.horasLectivas}</td></tr>
+    <tr><td>Horas no lectivas</td><td>${c.horasNoLectivas}</td></tr>
+    <tr><td>Horas virtuales/unidad</td><td>${c.horasVirtuales}</td></tr>
+    <tr><td>Área curricular</td><td>${c.area}</td></tr>
+    <tr><td>Ciclo</td><td>VI</td></tr>
+    <tr><td>Nivel de desempeño</td><td>${c.nivel}</td></tr>
+    <tr><td>Modalidad</td><td>${c.modalidad}</td></tr>
+    <tr><td>Semestre académico</td><td>${c.semestre}</td></tr>
+    <tr><td>Duración</td><td>${c.duracion}</td></tr>
+    <tr><td>Aula</td><td>${c.aula}</td></tr>
+    <tr><td>Prerrequisito</td><td>${c.prereq}</td></tr>
+    <tr><td>Currículo vigente</td><td>${c.curriculo}</td></tr>
+  </table>
+
   <hr/>
 
-  <h2 id="sumilla">Sumilla</h2>
+  <h2 id="sumilla">II. Sumilla</h2>
   ${sumillaHTML}
 
   <hr/>
 
-  <h2 id="logro">Logro del Curso</h2>
+  <h2 id="logro">III. Logro de Aprendizaje del Curso</h2>
   <p style="text-align:justify">${c.logro}</p>
+  ${c.perfilEgresado ? `<h3>Perfil del Egresado</h3><p>${c.perfilEgresado}</p>` : ''}
 
   <hr/>
 
-  <h2 id="contenido">Contenido por Unidades</h2>
+  <h2 id="contenido">IV. Tratamiento de Unidades Didácticas</h2>
   ${unidadesHTML}
 
   <hr/>
 
-  <h2 id="metodologia">Metodología</h2>
+  <h2 id="metodologia">V. Estrategias Metodológicas</h2>
   <div class="pub">
     <ul>
 ${metodHTML}
@@ -1503,14 +1153,15 @@ ${metodHTML}
 
   <hr/>
 
-  <h2 id="evaluacion">Evaluación</h2>
+  <h2 id="evaluacion">VI. Evaluación del Aprendizaje</h2>
   <div class="pub">
-${c.evaluacion.map(e => `    <div class="eval-item"><span>${e.item}</span><span class="eval-pct">${e.pct}%</span></div>`).join('\n')}
+${evalHTML}
   </div>
+  ${c.formulaCalif ? `<div class="pub" style="margin-top:8px;font-size:13px;font-family:monospace;background:#f0f4f8">${c.formulaCalif}</div>` : ''}
 
   <hr/>
 
-  <h2 id="entregables">Entregables</h2>
+  <h2 id="entregables">VII. Evidencias y Entregables</h2>
   <div class="pub">
     <ul>
 ${entregablesHTML}
@@ -1519,7 +1170,7 @@ ${entregablesHTML}
 
   <hr/>
 
-  <h2 id="recursos">Recursos</h2>
+  <h2 id="recursos">VIII. Recursos y Herramientas</h2>
   <div class="pub">
     <ul>
 ${recursosHTML}
@@ -1528,7 +1179,7 @@ ${recursosHTML}
 
   <hr/>
 
-  <h2 id="bibliografia">Bibliografía</h2>
+  <h2 id="bibliografia">IX. Fuentes de Información</h2>
   <div class="pub">
     <ul>
 ${bibHTML}
@@ -1537,9 +1188,10 @@ ${bibHTML}
 
   <hr/>
 
-  <h2 id="contacto">Contacto</h2>
+  <h2 id="contacto">X. Docente y Contacto</h2>
   <div class="contact-block">
-    <strong>${c.professor}</strong><br>
+    <strong>${c.professorFull}</strong><br>
+    Aula: ${c.aula}<br>
     <a href="mailto:${c.contact}">${c.contact}</a><br>
     Facultad de Ingeniería Estadística e Informática · UNAP · Puno
   </div>
@@ -1551,7 +1203,7 @@ ${bibHTML}
 
 <div class="footer-bar">
   &copy; 2026 Universidad Nacional del Altiplano &mdash; FIEI &mdash; Ingeniería Estadística e Informática<br>
-  Sílabo Oficial · ${c.code} ${c.title} · Ciclo VI · 2026
+  Sílabo Oficial · ${c.code} ${c.title} · Ciclo VI · Semestre ${c.semestre}
 </div>
 
 </body>
@@ -1561,12 +1213,9 @@ ${bibHTML}
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
-
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
-
-// Smooth scroll inside modal body for anchor links
 document.getElementById('modal-nav').addEventListener('click', function(e) {
   if (e.target.tagName === 'A') {
     e.preventDefault();
