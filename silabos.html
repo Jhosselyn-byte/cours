@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sílabos Académicos 2026-I | Briggitte Jhosselyn Vilca Chambilla - UNAP FINESI</title>
+  
+  <meta name="description" content="Visualizador de sílabos interactivos del Ciclo VI - Escuela Profesional de Ingeniería Estadística e Informática UNAP.">
+  <meta name="author" content="Briggitte Jhosselyn Vilca Chambilla">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logos/logopaginaweb.png">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-section">
+        <div class="brand-logos">
+          <img src="logos/logo_universidad.png" alt="Logo UNAP" class="brand-logo-img">
+          <div class="brand-divider"></div>
+          <img src="logos/logo_facultad.png" alt="Logo FINESI" class="brand-logo-img">
+        </div>
+        <div class="brand-titles">
+          <span class="brand-title">UNAP | FINESI</span>
+          <span class="brand-subtitle">Ingeniería Estadística e Informática</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i> Inicio
+            </a>
+          </li>
+          <li>
+            <a href="silabos.html" class="nav-link active">
+              <i class="fas fa-book"></i> Ver Sílabos
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="controls-group">
+        <!-- User Badge -->
+        <div class="user-badge" title="Estudiante de Ingeniería Estadística e Informática">
+          <div class="user-avatar">BV</div>
+          <div class="user-info">
+            <span class="user-name">Briggitte J. Vilca Chambilla</span>
+            <span class="user-role">Ciclo VI - 2026-I</span>
+          </div>
+        </div>
+
+        <!-- Dark / Light Theme Toggle Button -->
+        <button class="theme-toggle-btn" aria-label="Cambiar tema de color" title="Alternar Modo Oscuro/Claro">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Breadcrumb / Mini Banner -->
+  <section style="background: var(--primary-navy); color: #FFFFFF; padding: 1.75rem 2rem; border-bottom: 1px solid var(--border-color);">
+    <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; margin-bottom: 0.2rem;">
+          <a href="index.html" style="color: var(--accent-cyan); text-decoration: none;">Inicio</a> / Sílabos Académicos
+        </div>
+        <h2 style="font-size: 1.5rem; font-weight: 800;">Visualizador Oficial de Sílabos (Ciclo VI)</h2>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span style="font-size: 0.88rem; background: rgba(255,255,255,0.12); padding: 0.4rem 0.9rem; border-radius: var(--radius-full);">
+          Estudiante: <strong>Briggitte Jhosselyn Vilca Chambilla</strong>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="main-content" style="margin-top: 2rem;">
+    <div class="syllabi-page-container">
+      
+      <!-- Sidebar Course Navigator -->
+      <aside class="syllabi-sidebar">
+        <h3 class="sidebar-title"><i class="fas fa-list"></i> Asignaturas (6 Cursos)</h3>
+        <ul id="sidebar-course-list" class="course-nav-list">
+          <!-- Rendered dynamically by app.js -->
+        </ul>
+      </aside>
+
+      <!-- Main Detail Viewer Panel -->
+      <section id="syllabi-main-view" class="syllabi-main-view">
+        <!-- Rendered dynamically by app.js -->
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logos">
+          <img src="logos/logo_universidad.png" alt="UNAP Logo" class="footer-logo-img">
+          <img src="logos/logo_facultad.png" alt="FINESI Logo" class="footer-logo-img">
+        </div>
+        <p class="footer-desc">
+          Plataforma de Consulta de Sílabos de la Escuela Profesional de Ingeniería Estadística e Informática. Universidad Nacional del Altiplano - Puno.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Acceso Rápido</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="silabos.html" class="footer-link"><i class="fas fa-chevron-right"></i> Todos los Sílabos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Estudiante</h4>
+        <ul class="footer-links">
+          <li><span class="footer-link">Briggitte Jhosselyn Vilca Chambilla</span></li>
+          <li><span class="footer-link">Semestre Académico 2026-I</span></li>
+          <li><span class="footer-link">Ciclo VI | Plan 2021-2025 V.2.0</span></li>
+          <li><span class="footer-link">Puno - Perú</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 UNAP - FINESI. Todos los derechos reservados.</div>
+      <div>Desarrollado para la estudiante <span class="footer-credit">Briggitte Jhosselyn Vilca Chambilla</span></div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

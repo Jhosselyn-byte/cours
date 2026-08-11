@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Sílabo: Modelos Lineales (EST210) | Briggitte Jhosselyn Vilca Chambilla - UNAP FINESI</title>
+  
+  <meta name="description" content="Sílabo oficial de Modelos Lineales (EST210) - Ingeniería Estadística e Informática UNAP. Estudiante Briggitte Jhosselyn Vilca Chambilla.">
+  <meta name="author" content="Briggitte Jhosselyn Vilca Chambilla">
+
+  <!-- Favicon / Logo de Pestaña -->
+  <link rel="icon" type="image/png" href="../logos/logopaginaweb.png">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="brand-section">
+        <div class="brand-logos">
+          <img src="../logos/logo_universidad.png" alt="Logo UNAP" class="brand-logo-img">
+          <div class="brand-divider"></div>
+          <img src="../logos/logo_facultad.png" alt="Logo FINESI" class="brand-logo-img">
+        </div>
+        <div class="brand-titles">
+          <span class="brand-title">UNAP | FINESI</span>
+          <span class="brand-subtitle">Ingeniería Estadística e Informática</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li>
+            <a href="../index.html" class="nav-link">
+              <i class="fas fa-home"></i> Inicio
+            </a>
+          </li>
+          <li>
+            <a href="../silabos.html" class="nav-link active">
+              <i class="fas fa-book"></i> Catálogo Sílabos
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="controls-group">
+        <div class="user-badge" title="Estudiante de Ingeniería Estadística e Informática">
+          <div class="user-avatar">BV</div>
+          <div class="user-info">
+            <span class="user-name">Briggitte J. Vilca Chambilla</span>
+            <span class="user-role">Ciclo VI - 2026-I</span>
+          </div>
+        </div>
+
+        <button class="theme-toggle-btn" aria-label="Cambiar tema de color" title="Alternar Modo Oscuro/Claro">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Breadcrumb Banner -->
+  <section style="background: var(--primary-navy); color: #FFFFFF; padding: 1.25rem 1rem; border-bottom: 1px solid var(--border-color);">
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.85rem;">
+      <div>
+        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85; margin-bottom: 0.25rem;">
+          <a href="../index.html" style="color: var(--accent-cyan); text-decoration: none;">Inicio</a> / 
+          <a href="../silabos.html" style="color: var(--accent-cyan); text-decoration: none;">Sílabos</a> / 
+          <span style="color: #FFFFFF;">EST210</span>
+        </div>
+        <h2 style="font-size: clamp(1.3rem, 4vw, 1.75rem); font-weight: 700; line-height: 1.2;">Modelos Lineales</h2>
+      </div>
+      
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; width: 100%;">
+        <a href="../silabos/modelos_lineales.pdf" target="_blank" class="btn btn-primary" style="background: var(--accent-gold); color: #000; flex: 1;">
+          <i class="fas fa-file-pdf"></i> Abrir Archivo Original
+        </a>
+        <button onclick="window.print()" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);">
+          <i class="fas fa-print"></i> Imprimir
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Syllabus Content - 100% CONTENIDO VERTICAL CONTINUO SIN PESTAÑAS -->
+  <main class="main-content" style="margin-top: 1.5rem;">
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+      
+      <!-- Detalle Principal de la Asignatura -->
+      <article class="syllabi-main-view" style="width: 100%;">
+        
+        <!-- Encabezado del Curso -->
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--border-color);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="course-code-badge" style="font-size: 0.85rem; padding: 0.3rem 0.75rem;">
+              <i class="fas fa-bookmark"></i> CÓDIGO: EST210
+            </span>
+            <span class="course-category-tag" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">
+              Estudios de Especialidad
+            </span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); background: var(--bg-main); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); border: 1px solid var(--border-color);">
+              Ciclo VI | Semestre 2026-I
+            </span>
+          </div>
+          <h1 style="font-size: clamp(1.5rem, 4.5vw, 2.2rem); font-weight: 700; color: var(--primary-navy); line-height: 1.25;">
+            Modelos Lineales
+          </h1>
+        </div>
+
+        <!-- 1. INFORMACIÓN GENERAL (VERTICAL) -->
+        <section style="margin-bottom: 2.25rem;">
+          <h3 class="section-title"><i class="fas fa-list-ul"></i> 1. Información General del Curso</h3>
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-label">Docente Responsable</div>
+              <div class="info-card-value">Dr. Morillos Valderrama Santos Octavio</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">Nombrado - Principal D.E.</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Especialidad del Docente</div>
+              <div class="info-card-value">Doctor en Estadística e Informática</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Créditos y Horas</div>
+              <div class="info-card-value">5 Créditos (6 Horas Totales)</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">Teóricas: 4h | Prácticas: 2h</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Prerrequisito</div>
+              <div class="info-card-value">EST307 - Modelos Discretos</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Plan de Estudios</div>
+              <div class="info-card-value">2021 - 2025 Versión 2.0</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Ambiente de Aprendizaje</div>
+              <div class="info-card-value">Aula 205 Pabellón Antiguo</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. SUMILLA (VERTICAL) -->
+        <section style="margin-bottom: 2.25rem;">
+          <h3 class="section-title"><i class="fas fa-book-reader"></i> 2. Sumilla de la Asignatura</h3>
+          <div style="background: var(--bg-main); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); line-height: 1.65; font-size: 0.98rem; color: var(--text-main);">
+            El curso de Modelos Lineales pertenece al área curricular de estudios de especialidad, es de naturaleza teórico-práctico y tiene como propósito contribuir en forma significativa en la solución de problemas de la vida real mediante la formalización de modelos matemáticos y vectoriales.
+          </div>
+        </section>
+
+        <!-- 3. LOGRO DE APRENDIZAJE (VERTICAL) -->
+        <section style="margin-bottom: 2.25rem;">
+          <h3 class="section-title"><i class="fas fa-bullseye"></i> 3. Logro de Aprendizaje</h3>
+          <div style="background: rgba(111, 78, 55, 0.12); padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--primary-accent); line-height: 1.65; font-size: 0.98rem; color: var(--text-main);">
+            <strong>Competencia General Lograda:</strong> Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.
+          </div>
+        </section>
+
+        <!-- 4. UNIDADES DIDÁCTICAS Y SEMANAS (VERTICAL CONTINUO 1 A 18) -->
+        <section style="margin-bottom: 2.25rem;">
+          <h3 class="section-title"><i class="fas fa-calendar-alt"></i> 4. Tratamiento de Unidades Didácticas (Semanas 1 a 18)</h3>
+          
+          <div style="margin-bottom: 2rem;">
+            <div style="background: var(--primary-navy); color: #FFFFFF; padding: 0.85rem 1.15rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+              <h4 style="font-size: clamp(1rem, 3.5vw, 1.15rem); font-weight: 700;">UNIDAD I: Distribución de Formas Cuadráticas y Modelos de Rango Completo</h4>
+              <p style="font-size: 0.82rem; opacity: 0.9; margin-top: 0.2rem;"><strong>Duración:</strong> 30 de Marzo al 1 de Junio del 2026 (54 horas)</p>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;"><strong>Logro de Unidad:</strong> Determina la distribución de formas cuadráticas de variables aleatorias y analiza modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
+
+            <div class="weeks-container">
+              
+                <div class="week-card">
+                  <span class="week-badge">Semana 1</span>
+                  <div class="week-topic">Distribuciones de formas cuadráticas y matrices idempotentes.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 2</span>
+                  <div class="week-topic">Teorema de Craig y Teorema de Laha.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 3</span>
+                  <div class="week-topic">Modelo Lineal General en notación matricial.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 4</span>
+                  <div class="week-topic">Estimación de Mínimos Cuadrados Ordinarios (MCO) en modelos de rango completo.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 5</span>
+                  <div class="week-topic">Propiedades de los estimadores MCO y Teorema de Gauss-Markov.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 6</span>
+                  <div class="week-topic">Inferencia estadística, pruebas de hipótesis y regiones de confianza.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 7</span>
+                  <div class="week-topic">Análisis de Varianza (ANOVA) bajo el enfoque de modelos lineales.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 8</span>
+                  <div class="week-topic">Pruebas de hipótesis lineales generales (H0: C beta = d).</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 9</span>
+                  <div class="week-topic">Examen Parcial I y resolución de ejercicios vectoriales.</div>
+                </div>
+            </div>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <div style="background: var(--primary-navy); color: #FFFFFF; padding: 0.85rem 1.15rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+              <h4 style="font-size: clamp(1rem, 3.5vw, 1.15rem); font-weight: 700;">UNIDAD II: Modelos de Correlación y Modelos de Rango No Completo</h4>
+              <p style="font-size: 0.82rem; opacity: 0.9; margin-top: 0.2rem;"><strong>Duración:</strong> 2 de Junio al 31 de Julio del 2026 (54 horas)</p>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;"><strong>Logro de Unidad:</strong> Aplica la teoría de inversa generalizada para resolver modelos lineales de rango no completo y analiza modelos de diseño de experimentos.</p>
+
+            <div class="weeks-container">
+              
+                <div class="week-card">
+                  <span class="week-badge">Semana 10</span>
+                  <div class="week-topic">Inversa generalizada de matrices (G-Inversa / Penrose).</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 11</span>
+                  <div class="week-topic">Modelos de rango no completo y funciones estimables.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 12</span>
+                  <div class="week-topic">Teorema de Roy-Bose y contrastabilidad de hipótesis.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 13</span>
+                  <div class="week-topic">Modelos de Diseños Experimentales: Clasificación de una vía.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 14</span>
+                  <div class="week-topic">Modelos de Diseños Experimentales: Clasificación de dos vías.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 15</span>
+                  <div class="week-topic">Modelos Mixtos y Modelos de Componentes de Varianza.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 16</span>
+                  <div class="week-topic">Diagnóstico de supuestos matriciales y multicolinealidad.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 17</span>
+                  <div class="week-topic">Presentación de trabajo aplicativo computacional en R / Python.</div>
+                </div>
+                <div class="week-card">
+                  <span class="week-badge">Semana 18</span>
+                  <div class="week-topic">Examen Final II.</div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. SISTEMA DE EVALUACIÓN Y METODOLOGÍA (VERTICAL) -->
+        <section style="margin-bottom: 2.25rem;">
+          <h3 class="section-title"><i class="fas fa-chart-pie"></i> 5. Sistema de Evaluación y Metodología</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+            <div class="info-card">
+              <div class="info-card-label">Exámenes Teórico-Prácticos</div>
+              <div class="info-card-value">40% Promedio Ponderado</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Trabajos Aplicativos / Portafolio</div>
+              <div class="info-card-value">35% Seguimiento Continuo</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-label">Laboratorios / Sustentación</div>
+              <div class="info-card-value">25% Evaluación Continua</div>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-main); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong style="color: var(--primary-navy); display: block; margin-bottom: 0.5rem; font-size: 1.05rem;">Estrategias Metodológicas:</strong>
+            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-main); font-size: 0.95rem;">
+              <li>Clases magistrales activas y desarrollo práctico de laboratorios computacionales.</li>
+              <li>Resolución de problemas reales aplicados a la Ingeniería Estadística e Informática.</li>
+              <li>Uso obligatorio de software especializado y portafolios digitales de evidencias.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 6. DOCUMENTO OFICIAL (VERTICAL) -->
+        <section style="margin-bottom: 2rem;">
+          <h3 class="section-title"><i class="fas fa-file-pdf"></i> 6. Documento Oficial del Sílabo</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="../silabos/modelos_lineales.pdf" target="_blank" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-external-link-alt"></i> Abrir o Descargar Documento Original Completo
+            </a>
+            <div class="document-viewer-wrapper">
+              <iframe src="../silabos/modelos_lineales.pdf" class="document-viewer-iframe" title="Visor de Sílabo EST210"></iframe>
+            </div>
+          </div>
+        </section>
+
+      </article>
+
+      <!-- 7. OTRAS ASIGNATURAS Y NAVEGACIÓN ENTRE CURSOS (VERTICAL EN PIE DE PÁGINA) -->
+      <aside class="syllabi-sidebar" style="position: static; width: 100%;">
+        <h3 class="sidebar-title"><i class="fas fa-th-list"></i> Otras Asignaturas del Ciclo VI</h3>
+        <ul class="course-nav-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+          
+          <li>
+            <a href="aprendizaje_no_supervisado.html" class="course-nav-item " style="text-decoration: none;">
+              <span class="course-nav-code">EST314</span>
+              <span class="course-nav-name">Aprendizaje No Supervisado</span>
+            </a>
+          </li>
+          <li>
+            <a href="series_de_tiempo.html" class="course-nav-item " style="text-decoration: none;">
+              <span class="course-nav-code">EST317</span>
+              <span class="course-nav-name">Series de Tiempo</span>
+            </a>
+          </li>
+          <li>
+            <a href="arquitectura_de_redes_y_protocolos.html" class="course-nav-item " style="text-decoration: none;">
+              <span class="course-nav-code">EST316</span>
+              <span class="course-nav-name">Arquitectura de Redes y Protocolos</span>
+            </a>
+          </li>
+          <li>
+            <a href="modelos_lineales.html" class="course-nav-item active" style="text-decoration: none;">
+              <span class="course-nav-code">EST210</span>
+              <span class="course-nav-name">Modelos Lineales</span>
+            </a>
+          </li>
+          <li>
+            <a href="regresion_lineal_y_no_lineal.html" class="course-nav-item " style="text-decoration: none;">
+              <span class="course-nav-code">EST209</span>
+              <span class="course-nav-name">Regresión Lineal y No Lineal</span>
+            </a>
+          </li>
+          <li>
+            <a href="gestion_de_proyectos_tics.html" class="course-nav-item " style="text-decoration: none;">
+              <span class="course-nav-code">EST315</span>
+              <span class="course-nav-name">Gestión de Proyectos TICs</span>
+            </a>
+          </li>
+        </ul>
+
+        <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="arquitectura_de_redes_y_protocolos.html" class="btn btn-outline" style="font-size: 0.9rem; flex: 1; justify-content: center;">
+            <i class="fas fa-arrow-left"></i> Anterior: EST316
+          </a>
+          <a href="regresion_lineal_y_no_lineal.html" class="btn btn-outline" style="font-size: 0.9rem; flex: 1; justify-content: center;">
+            Siguiente: EST209 <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logos">
+          <img src="../logos/logo_universidad.png" alt="UNAP Logo" class="footer-logo-img">
+          <img src="../logos/logo_facultad.png" alt="FINESI Logo" class="footer-logo-img">
+        </div>
+        <p class="footer-desc">
+          Plataforma de Consulta de Sílabos de la Escuela Profesional de Ingeniería Estadística e Informática. Universidad Nacional del Altiplano - Puno.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Acceso Rápido</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="../silabos.html" class="footer-link"><i class="fas fa-chevron-right"></i> Todos los Sílabos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Estudiante</h4>
+        <ul class="footer-links">
+          <li><span class="footer-link">Briggitte Jhosselyn Vilca Chambilla</span></li>
+          <li><span class="footer-link">Semestre Académico 2026-I</span></li>
+          <li><span class="footer-link">Ciclo VI | Plan 2021-2025 V.2.0</span></li>
+          <li><span class="footer-link">Puno - Perú</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 UNAP - FINESI. Todos los derechos reservados.</div>
+      <div>Desarrollado para la estudiante <span class="footer-credit">Briggitte Jhosselyn Vilca Chambilla</span></div>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const themeBtn = document.querySelector('.theme-toggle-btn');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const curr = document.documentElement.getAttribute('data-theme');
+          const next = curr === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          const icon = themeBtn.querySelector('i');
+          if (icon) icon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
